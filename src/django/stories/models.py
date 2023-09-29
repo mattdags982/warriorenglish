@@ -1,7 +1,19 @@
 from django.db import models
 
 
+class Module(models.Model):
+    name = models.CharField(max_length=255)
+    difficulty_rating = models.IntegerField()
+    category = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.name
+
+
 class Story(models.Model):
+    module = models.ForeignKey(
+        Module, related_name="stories", on_delete=models.SET_NULL, null=True, blank=True
+    )
     title = models.CharField(max_length=255)
     description = models.TextField()
     audio_link = models.URLField(blank=True, null=True)

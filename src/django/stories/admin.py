@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Conversation, Story, Translation
+from .models import Conversation, Module, Story, Translation
 
 
 class TranslationInline(admin.TabularInline):
@@ -21,3 +21,4 @@ class StoryAdmin(admin.ModelAdmin):
 admin.site.register(Story, StoryAdmin)
 admin.site.register(Conversation)
 admin.site.register(Translation)
+admin.site.register(Module)
