@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import AppBar from "@mui/material/AppBar";
 import Typography from "@mui/material/Typography";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,7 +23,9 @@ export default function RootLayout({
         <AppBar position="static">
           <div className="h-[66px] px-4 py-2 flex items-center">
             <Typography variant="h6">
-              <span className="italic">Warrior English</span>
+              <span className="italic">
+                <Link href={"/"}>Warrior English</Link>
+              </span>
             </Typography>
           </div>
         </AppBar>

@@ -1,7 +1,24 @@
-from django.urls import path
+from rest_framework import routers
 
-from .views import StoryList
+from django.urls import include, path
+
+from .views import ModuleViewSet, StoryDetailByLanguage, StoryListByModuleID
+
+router = routers.DefaultRouter()
+router.register(r"modules", ModuleViewSet)
+# urlpatterns = router.urls
+
 
 urlpatterns = [
-    path("stories/", StoryList.as_view(), name="story-list"),
+    path(
+        "stories/<int:module_id>/",
+        StoryListByModuleID.as_view(),
+        name="story-list-by-module-id",
+    ),
+    path(
+        "story/<int:story_id>/<str:language_code>/",
+        StoryDetailByLanguage.as_view(),
+        name="story-detail-by-language",
+    ),
+    path("", include(router.urls)),
 ]
