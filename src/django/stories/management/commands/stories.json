@@ -6,62 +6,86 @@
       {
         "name": "Waitress",
         "contentEnglish": "Good evening, sir. Would you like to start with something to drink?",
-        "contentSpanish": "Buenas noches, señor. ¿Le gustaría empezar con algo para beber?"
+        "contentSpanish": "Buenas noches, señor. ¿Le gustaría empezar con algo para beber?",
+        "contentItalian": "Buonasera signore. Vorrebbe iniziare con qualcosa da bere?",
+        "contentFrench": "Bonsoir monsieur. Souhaitez-vous commencer par quelque chose à boire?"
       },
       {
         "name": "Man",
         "contentEnglish": "Hmm, do you serve organic, gluten-free water?",
-        "contentSpanish": "Hmm, ¿sirven agua orgánica sin gluten?"
+        "contentSpanish": "Hmm, ¿sirven agua orgánica sin gluten?",
+        "contentItalian": "Hmm, avete acqua organica senza glutine?",
+        "contentFrench": "Hmm, servez-vous de l'eau biologique sans gluten?"
       },
       {
         "name": "Waitress",
         "contentEnglish": "Uh, water is naturally gluten-free, sir.",
-        "contentSpanish": "Eh, el agua es naturalmente sin gluten, señor."
+        "contentSpanish": "Eh, el agua es naturalmente sin gluten, señor.",
+        "contentItalian": "Eh, l'acqua è naturalmente senza glutine, signore.",
+        "contentFrench": "Euh, l'eau est naturellement sans gluten, monsieur."
       },
       {
         "name": "Man",
         "contentEnglish": "Excellent! I'll take a glass of that exquisite water.",
-        "contentSpanish": "¡Excelente! Tomaré un vaso de esa agua exquisita."
+        "contentSpanish": "¡Excelente! Tomaré un vaso de esa agua exquisita.",
+        "contentItalian": "Eccellente! Prenderò un bicchiere di quell'acqua squisita.",
+        "contentFrench": "Excellent ! Je prendrai un verre de cette eau exquise."
       },
       {
         "name": "Waitress",
         "contentEnglish": "Very well. Are you ready to order food?",
-        "contentSpanish": "Muy bien. ¿Está listo para ordenar comida?"
+        "contentSpanish": "Muy bien. ¿Está listo para ordenar comida?",
+        "contentItalian": "Molto bene. È pronto per ordinare del cibo?",
+        "contentFrench": "Très bien. Êtes-vous prêt à commander à manger?"
       },
       {
         "name": "Man",
         "contentEnglish": "Yes, can I have a vegan steak?",
-        "contentSpanish": "Sí, ¿puedo tener un bistec vegano?"
+        "contentSpanish": "Sí, ¿puedo tener un bistec vegano?",
+        "contentItalian": "Sì, posso avere una bistecca vegana?",
+        "contentFrench": "Oui, puis-je avoir un steak végétalien?"
       },
       {
         "name": "Waitress",
         "contentEnglish": "I'm afraid we only serve real steak, sir.",
-        "contentSpanish": "Me temo que solo servimos bistec real, señor."
+        "contentSpanish": "Me temo que solo servimos bistec real, señor.",
+        "contentItalian": "Temo che serviamo solo bistecche vere, signore.",
+        "contentFrench": "J'ai bien peur que nous ne servions que de vrais steaks, monsieur."
       },
       {
         "name": "Man",
         "contentEnglish": "Ah, too bad. Alright, I'll go for the chicken parmesan then.",
-        "contentSpanish": "Ah, qué mal. De acuerdo, entonces tomaré el pollo a la parmesana."
+        "contentSpanish": "Ah, qué mal. De acuerdo, entonces tomaré el pollo a la parmesana.",
+        "contentItalian": "Ah, peccato. Va bene, allora prendo il pollo alla parmigiana.",
+        "contentFrench": "Ah, dommage. D'accord, je prendrai le poulet parmesan alors."
       },
       {
         "name": "Waitress",
         "contentEnglish": "Would you like that cooked, or should I just bring out a chicken and some cheese?",
-        "contentSpanish": "¿Le gustaría eso cocido, o debo traer solo un pollo y un poco de queso?"
+        "contentSpanish": "¿Le gustaría eso cocido, o debo traer solo un pollo y un poco de queso?",
+        "contentItalian": "Lo vuole cotto, o dovrei portare fuori solo un pollo e un po' di formaggio?",
+        "contentFrench": "Voulez-vous cela cuit, ou devrais-je simplement apporter un poulet et du fromage?"
       },
       {
         "name": "Man",
         "contentEnglish": "Ha! You've got a sense of humor. Cooked, please!",
-        "contentSpanish": "¡Ja! Tienes sentido del humor. ¡Cocido, por favor!"
+        "contentSpanish": "¡Ja! Tienes sentido del humor. ¡Cocido, por favor!",
+        "contentItalian": "Ah! Hai senso dell'umorismo. Cotto, per favore!",
+        "contentFrench": "Ha ! Vous avez le sens de l'humour. Cuit, s'il vous plaît!"
       },
       {
         "name": "Waitress",
         "contentEnglish": "Of course, sir. Anything else?",
-        "contentSpanish": "Por supuesto, señor. ¿Algo más?"
+        "contentSpanish": "Por supuesto, señor. ¿Algo más?",
+        "contentItalian": "Certo, signore. Qualcos'altro?",
+        "contentFrench": "Bien sûr, monsieur. Autre chose?"
       },
       {
         "name": "Man",
         "contentEnglish": "A sense of purpose in life. But for now, the chicken will do.",
-        "contentSpanish": "Un sentido de propósito en la vida. Pero por ahora, el pollo estará bien."
+        "contentSpanish": "Un sentido de propósito en la vida. Pero por ahora, el pollo estará bien.",
+        "contentItalian": "Un senso di scopo nella vita. Ma per ora, il pollo andrà bene.",
+        "contentFrench": "Un sens du but dans la vie. Mais pour l'instant, le poulet fera l'affaire."
       }
     ]
   },
