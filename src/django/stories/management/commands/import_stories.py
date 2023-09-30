@@ -1,7 +1,8 @@
 import json
 
-from django.core.management.base import BaseCommand
 from stories.models import Conversation, Story, Translation
+
+from django.core.management.base import BaseCommand
 
 
 class Command(BaseCommand):
@@ -32,12 +33,29 @@ class Command(BaseCommand):
                     content_english=conversation_data["contentEnglish"],
                 )
 
-                # Create Spanish Translation
-                Translation.objects.create(
-                    conversation=conversation,
-                    language_code="es",
-                    translated_content=conversation_data["contentSpanish"],
-                )
+                # Check if Spanish translation key exists and then create
+                if "contentSpanish" in conversation_data:
+                    Translation.objects.create(
+                        conversation=conversation,
+                        language_code="es",
+                        translated_content=conversation_data["contentSpanish"],
+                    )
+
+                # Check if Italian translation key exists and then create
+                if "contentItalian" in conversation_data:
+                    Translation.objects.create(
+                        conversation=conversation,
+                        language_code="it",
+                        translated_content=conversation_data["contentItalian"],
+                    )
+
+                # Check if French translation key exists and then create
+                if "contentFrench" in conversation_data:
+                    Translation.objects.create(
+                        conversation=conversation,
+                        language_code="fr",
+                        translated_content=conversation_data["contentFrench"],
+                    )
 
             self.stdout.write(
                 self.style.SUCCESS('Successfully imported story "%s"' % story.title)

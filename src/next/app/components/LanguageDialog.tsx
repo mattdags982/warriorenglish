@@ -16,6 +16,9 @@ export default function LanguageDialog() {
         <ListItem>
           <Link href="it">Italiano</Link>
         </ListItem>
+        <ListItem>
+          <Link href="fr">Frances</Link>
+        </ListItem>
       </List>
     </Dialog>
   );

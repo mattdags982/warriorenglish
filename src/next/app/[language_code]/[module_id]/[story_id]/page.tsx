@@ -7,11 +7,14 @@ import AudioPlayer from "@/app/components/AudioPlayer";
 interface StoryProps {
   params: {
     story_id: string;
+    language_code: string;
   };
 }
 
-export default async function Story({ params: { story_id } }: StoryProps) {
-  const story: Story = await getStoryById(story_id, "es");
+export default async function Story({
+  params: { story_id, language_code },
+}: StoryProps) {
+  const story: Story = await getStoryById(story_id, language_code);
   console.log("ayyy");
 
   return (

@@ -25,7 +25,7 @@ export async function getStoryById(id, lang) {
   const res = await fetch(`http://127.0.0.1:8000/api/story/${id}/${lang}`, {
     cache: "no-store",
   });
-  console.log(res);
   const data = await res.json();
+  console.log(data.conversations[0].translations[0]);
   return data;
 }
