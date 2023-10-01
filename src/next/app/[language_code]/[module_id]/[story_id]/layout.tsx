@@ -12,7 +12,7 @@ export default function StoryLayout({
   // in the future, you can use the story name to get the audio file.
   // you may need to use redux to store the story name. MAYBE.
   return (
-    <section className="flex flex-col">
+    <section className="flex flex-col bg-[#F2E8C8]">
       <div>{children}</div>
       <div className="h-[120px]"></div>
       <AudioPlayer audioSrc="/audio/next.mp3" />

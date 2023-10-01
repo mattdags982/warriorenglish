@@ -11,13 +11,40 @@ interface StoryProps {
   };
 }
 
+// note: think about what you are building. Realy, its not a book, however the stories / chaapters idea I think is good
+// its a tool that you are building, it should feel smooth and sleek like the spotify audio player, yet warm and inviting like a book
+// its a combo of enjoyable audio book and a tool to help you learn a language
+// what does that feel like? How can you combine functionality with a warm and inviting, yet sleek and modern feeling?
+
+const bookColors = {
+  4: "#E3DAC9", //nice on the eyes
+  2: "#FAEBD7", //very good
+  1: "#F2E8C8", //not bad
+  3: "#F5F5DC",
+  5: "#EDEDD2",
+  6: "#EEE8AA", //nope
+};
+
+const textColors = {
+  charcoal: "#333333",
+  gunmetal: "#2A2A2A",
+  davysgrey: "#555555", //too light
+  outerspace: "#414A4C",
+  taupe: "#505050",
+};
+
 export default async function Story({
   params: { story_id, language_code },
 }: StoryProps) {
   const story: Story = await getStoryById(story_id, language_code);
 
   return (
-    <div className="h-full w-full bg-white flex items-center flex-col py-8">
+    <div
+      className="h-full w-full
+    bg-[#E3DAC9]
+     flex items-center flex-col py-8
+     text-[#2A2A2A]"
+    >
       <div className="max-w-[700px]">
         <div className="">
           <Typography variant="h3">{story.title}</Typography>
