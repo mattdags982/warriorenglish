@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getAllModules } from "../libs/storiesApi";
+import { getAllModules } from "../api/stories";
 import { Module } from "@/types/Module";
 import ModuleCard from "../components/ModuleCard";
 

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getAllModules } from "./libs/storiesApi";
+import { getAllModules } from "./api/stories";
 import LanguageDialog from "./components/LanguageDialog";
 
 // Note: On this page you could have "hidden" text that says "learn english with comprehension input" or something like that

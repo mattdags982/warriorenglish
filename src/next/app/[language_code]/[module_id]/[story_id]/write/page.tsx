@@ -1,5 +1,5 @@
 import { Typography } from "@mui/material";
-import { getStoryById } from "../../../../libs/storiesApi";
+import { getStoryById } from "../../../../api/stories";
 import ConversationBlurb from "@/app/components/Conversation";
 import { Story } from "@/types/Story";
 

@@ -22,11 +22,14 @@ export default function RootLayout({
       <body className={inter.className}>
         <AppBar position="static">
           <div className="h-[66px] px-4 py-2 flex items-center">
-            <Typography variant="h6">
+            <Typography className="flex-1" variant="h6">
               <span className="italic">
                 <Link href={"/"}>Warrior English</Link>
               </span>
             </Typography>
+            <div className="flex gap-4">
+              <Link href={"es/login"}>Login</Link>
+            </div>
           </div>
         </AppBar>
         <div className="h-[calc(100vh-66px)]">{children}</div>

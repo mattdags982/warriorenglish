@@ -20,20 +20,6 @@ export default function LanguageDialog() {
           <Link href="fr">Frances</Link>
         </ListItem>
       </List>
-      <div className="mt-8">
-        <form className="flex flex-col gap-2 border-2">
-          <input
-            type="text"
-            name="username"
-            placeholder="enter username"
-          ></input>
-          <input
-            type="password"
-            name="password"
-            placeholder="enter password"
-          ></input>
-        </form>
-      </div>
     </Dialog>
   );
 }
