@@ -22,5 +22,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("blog.urls")),
     path("api-auth/", include("rest_framework.urls", namespace="rest_framework")),
-    path("api/", include("stories.urls")),
+    # path("api/", include("stories.urls")),
+    # added for auth
+    path("api/", include("app.api.urls")),
 ]
