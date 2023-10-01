@@ -16,6 +16,11 @@ interface StoryProps {
 // its a combo of enjoyable audio book and a tool to help you learn a language
 // what does that feel like? How can you combine functionality with a warm and inviting, yet sleek and modern feeling?
 
+// being inspired from spotify, I think that the audio play and "top of screen" options should sort of "blend in" to the background, which resemebles paper or at least something soft on the eyes
+// once you open a story, it is essentially "opening a book". The more distractions you have on the screen, the worse.
+
+// When starting screens of the app can feel a bit more like ex, the cover of the book, or something along those lines
+
 const bookColors = {
   4: "#E3DAC9", //nice on the eyes
   2: "#FAEBD7", //very good
