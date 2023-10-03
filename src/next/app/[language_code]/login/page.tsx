@@ -1,10 +1,18 @@
 "use client";
 
 import jwt_decode from "jwt-decode";
-import { JWTAuthenticateUser, JWTRefreshToken } from "../../api/auth";
+import {
+  JWTAuthenticateUser,
+  JWTRefreshToken,
+  getTranslations,
+} from "../../api/auth";
 import { useRouter } from "next/navigation";
 import { Button } from "@mui/material";
 
+// some notes:
+// 1. you should log a user out if they get an Unauthorized response from a protected route
+// 2. You should refresh your access token every time a user re-enters your site (if they have a refresh token)
+// 3. You should periodically be refreshing your access token. You need to determine proper expiration times and a good method to have this running in the background
 export default function Login({ params: { language_code } }) {
   const router = useRouter();
 
@@ -48,6 +56,22 @@ export default function Login({ params: { language_code } }) {
     }
   };
 
+  let testProtectedRoute = async () => {
+    const authTokens = JSON.parse(localStorage.getItem("authTokens"));
+    if (!authTokens) {
+      return;
+    }
+    const token = authTokens.access;
+    const res = await getTranslations(token);
+    if (res.status === 200) {
+      const data = await res.json();
+      console.log("data: ", data);
+    } else {
+      alert("invalid token");
+      return false;
+    }
+  };
+
   return (
     <div className="w-full flex flex-col items-center gap-10 justify-center mt-24">
       <form className="flex flex-col gap-8 w-[50%]" onSubmit={submitLogin}>
@@ -61,6 +85,9 @@ export default function Login({ params: { language_code } }) {
       </form>
       <Button onClick={Logout}>Logout</Button>
       <Button onClick={updateToken}>Refresh</Button>
+      <Button onClick={testProtectedRoute}>
+        Test Protected Route (Get Translations)
+      </Button>
     </div>
   );
 }

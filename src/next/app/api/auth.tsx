@@ -22,3 +22,16 @@ export async function JWTRefreshToken(token) {
   });
   return res;
 }
+
+// example of getting translations for a protected route
+export async function getTranslations(token: string) {
+  const res = await fetch(`http://127.0.0.1:8000/api/translations/`, {
+    cache: "no-store",
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  return res;
+}
