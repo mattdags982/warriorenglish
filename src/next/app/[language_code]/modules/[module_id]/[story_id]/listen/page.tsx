@@ -1,5 +1,5 @@
 import { Typography } from "@mui/material";
-import { getStoryById } from "../../../../api/stories";
+import { getStoryById } from "../../../../../api/stories";
 import ConversationBlurb from "@/app/components/Conversation";
 import { Story } from "@/types/Story";
 
@@ -10,14 +10,14 @@ interface StoryProps {
   };
 }
 
-export default async function Story({
+export default async function StoryListen({
   params: { story_id, language_code },
 }: StoryProps) {
   const story: Story = await getStoryById(story_id, language_code);
 
   return (
     <div className="h-full w-full bg-white flex items-center flex-col py-8">
-      <div>THIS IS YOUR WRITE MODULE</div>
+      <div>THIS IS YOUR LISTEN MODULE</div>
       <div className="max-w-[700px]">
         <div className="">
           <Typography variant="h3">{story.title}</Typography>

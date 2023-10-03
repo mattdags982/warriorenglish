@@ -1,29 +1,27 @@
 import Link from "next/link";
-import { getAllModules } from "../api/stories";
-import { Module } from "@/types/Module";
-import ModuleCard from "../components/ModuleCard";
+import { Typography } from "@mui/material";
 
-interface ModuleListProps {
+// TODO:
+// If someone enters a url like warriorenglish/ayyyy this page still works becasue it will think ayyy is the language code
+// Need some safegaurd here
+interface LandingPageProps {
   params: {
     language_code: string;
   };
 }
 
-export default async function ModuleList({
+export default async function LandingPage({
   params: { language_code },
-}: ModuleListProps) {
-  const modules: Module[] = await getAllModules();
+}: LandingPageProps) {
   return (
-    <div className="h-full w-full bg-white flex justify-center mt-24 gap-12 flex-wrap">
-      {modules.map((module) => {
-        return (
-          <div key={module.id}>
-            <Link href={`${language_code}/${module.id}`}>
-              <ModuleCard module={module} />
-            </Link>
-          </div>
-        );
-      })}
+    <div className="h-full w-full flex flex-col items-center mt-24 gap-12 flex-wrap">
+      <Typography variant="h1">Landing Page</Typography>
+      <Typography variant="h5">
+        <Link href={`/${language_code}/modules`}>Modules</Link>
+      </Typography>
+      <Typography variant="h5">
+        <Link href={`/${language_code}/blog`}>Blog</Link>
+      </Typography>
     </div>
   );
 }

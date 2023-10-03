@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getStoriesByModuleId } from "../../api/stories";
+import { getStoriesByModuleId } from "../../../api/stories";
 import { Story } from "@/types/Story";
 
 interface StoryListProps {
