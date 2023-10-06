@@ -35,3 +35,15 @@ export async function getTranslations(token: string) {
   });
   return res;
 }
+
+export async function createUser({ userName, email, password, country }) {
+  const res = await fetch(`http://127.0.0.1:8000/api/signup/`, {
+    cache: "no-store",
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ userName, email, password, country }),
+  });
+  return res;
+}

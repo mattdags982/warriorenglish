@@ -11,10 +11,11 @@ import {
   MenuItem,
   Typography,
 } from "@mui/material";
+import { createUser } from "@/app/api/auth";
 
 const SignupSchema = Yup.object().shape({
-  fullName: Yup.string()
-    .required("Full Name is required")
+  userName: Yup.string()
+    .required("Username is required")
     .matches(/^[a-zA-Z\s]+$/, "Only alphabetic characters allowed"),
   email: Yup.string().email("Invalid email").required("Email is required"),
   password: Yup.string()
@@ -26,14 +27,15 @@ const SignupSchema = Yup.object().shape({
 const Signup: React.FC = () => {
   const formik = useFormik({
     initialValues: {
-      fullName: "",
+      userName: "",
       email: "",
       password: "",
       country: "",
     },
     validationSchema: SignupSchema,
-    onSubmit: (values) => {
-      console.log(values);
+    onSubmit: async (values) => {
+      const res = await createUser(values);
+      console.log(res);
     },
   });
 
@@ -48,13 +50,13 @@ const Signup: React.FC = () => {
       >
         <TextField
           fullWidth
-          id="fullName"
-          name="fullName"
-          label="Full Name"
-          value={formik.values.fullName}
+          id="userName"
+          name="userName"
+          label="Username"
+          value={formik.values.userName}
           onChange={formik.handleChange}
-          error={formik.touched.fullName && Boolean(formik.errors.fullName)}
-          helperText={formik.touched.fullName && formik.errors.fullName}
+          error={formik.touched.userName && Boolean(formik.errors.userName)}
+          helperText={formik.touched.userName && formik.errors.userName}
         />
         <TextField
           fullWidth
