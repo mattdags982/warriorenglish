@@ -211,6 +211,7 @@ EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_HOST_USER = "warriorenglishapp@gmail.com"
 EMAIL_HOST_PASSWORD = "gyftwejyufhaotuj"
+EMAIL_USE_TLS = True
 
 DJOSER = {
     "LOGIN_FIELD": "email",
@@ -223,5 +224,9 @@ DJOSER = {
     "USERNAME_RESET_CONFIRM_URL": "email/reset/confirm/{uid}/{token}",
     "ACTIVATION_URL": "activate/{uid}/{token}",
     "SEND_ACTIVATION_EMAIL": True,
-    "SERIALIZERS": {},
+    "SERIALIZERS": {
+        "user_create": "users.serializers.UserCreateSerializer",
+        "user": "users.serializers.UserCreateSerializer",
+        "user_delete": "djoser.serializers.UserDeleteSerializer",
+    },
 }
