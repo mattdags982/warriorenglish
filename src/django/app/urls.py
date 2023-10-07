@@ -16,13 +16,20 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import include, path
+from django.urls import include, path, re_path
+from django.views.generic import TemplateView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("blog.urls")),
     path("api-auth/", include("rest_framework.urls", namespace="rest_framework")),
     path("api/", include("stories.urls")),
-    # added for auth
+    # added for auth jwt
     path("api/", include("app.api.urls")),
+    # djoser
+    path("auth/", include("djoser.urls")),
+    path("auth/", include("djoser.urls.jwt")),
 ]
+
+# this is for all the other paths (djoser). Im not positive, but this may need to be updated later on
+urlpatterns += [re_path(r"^.*", TemplateView.as_view(template_name="index.html"))]

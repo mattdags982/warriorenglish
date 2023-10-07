@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 import os
-from datetime import timedelta
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -65,7 +64,9 @@ ROOT_URLCONF = "app.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        # added this for front end stuff, not really sure what it does. Might need to remove later on
+        "DIRS": [os.path.join(BASE_DIR, "build")],
+        # "DIRS": [],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -84,10 +85,20 @@ WSGI_APPLICATION = "app.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.sqlite3",
+#         "NAME": BASE_DIR / "db.sqlite3",
+#     }
+# }
+
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "warriorenglish",
+        "USER": "postgres",
+        "PASSWORD": "Wizehire2$",
+        "HOST": "localhost",
     }
 }
 
@@ -127,6 +138,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = "static/"
+# these two lines also has to do with that line I had added above for front end stuff
+STATIC_FILES_DIRS = [os.path.join(BASE_DIR, "build/static")]
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -146,42 +160,42 @@ REST_FRAMEWORK = {
 
 
 SIMPLE_JWT = {
-    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=15),
-    "REFRESH_TOKEN_LIFETIME": timedelta(days=90),
-    # True means that after a refresh tokens lifetime has expired, a new refresh token will be created with out the user needing to log back in
-    # Note: this is ONLY true if the user has been active within the refresh token lifetime
-    "ROTATE_REFRESH_TOKENS": True,
-    # True means that after a refresh token has been used to obtain a new access token, the old refresh token will be unusable
-    "BLACKLIST_AFTER_ROTATION": True,
-    "UPDATE_LAST_LOGIN": False,
-    "ALGORITHM": "HS256",
-    "SIGNING_KEY": SECRET_KEY,
-    "VERIFYING_KEY": "",
-    "AUDIENCE": None,
-    "ISSUER": None,
-    "JSON_ENCODER": None,
-    "JWK_URL": None,
-    "LEEWAY": 0,
-    "AUTH_HEADER_TYPES": ("Bearer",),
-    "AUTH_HEADER_NAME": "HTTP_AUTHORIZATION",
-    "USER_ID_FIELD": "id",
-    "USER_ID_CLAIM": "user_id",
-    "USER_AUTHENTICATION_RULE": "rest_framework_simplejwt.authentication.default_user_authentication_rule",
-    "AUTH_TOKEN_CLASSES": ("rest_framework_simplejwt.tokens.AccessToken",),
-    "TOKEN_TYPE_CLAIM": "token_type",
-    "TOKEN_USER_CLASS": "rest_framework_simplejwt.models.TokenUser",
-    "JTI_CLAIM": "jti",
-    "SLIDING_TOKEN_REFRESH_EXP_CLAIM": "refresh_exp",
-    "SLIDING_TOKEN_LIFETIME": timedelta(minutes=5),
-    "SLIDING_TOKEN_REFRESH_LIFETIME": timedelta(days=1),
-    # "TOKEN_OBTAIN_SERIALIZER": "rest_framework_simplejwt.serializers.TokenObtainPairSerializer",
-    # It will work instead of the default serializer(TokenObtainPairSerializer).
-    "TOKEN_OBTAIN_SERIALIZER": "app.api.serializers.MyTokenObtainPairSerializer",
-    "TOKEN_REFRESH_SERIALIZER": "rest_framework_simplejwt.serializers.TokenRefreshSerializer",
-    "TOKEN_VERIFY_SERIALIZER": "rest_framework_simplejwt.serializers.TokenVerifySerializer",
-    "TOKEN_BLACKLIST_SERIALIZER": "rest_framework_simplejwt.serializers.TokenBlacklistSerializer",
-    "SLIDING_TOKEN_OBTAIN_SERIALIZER": "rest_framework_simplejwt.serializers.TokenObtainSlidingSerializer",
-    "SLIDING_TOKEN_REFRESH_SERIALIZER": "rest_framework_simplejwt.serializers.TokenRefreshSlidingSerializer",
+    # "ACCESS_TOKEN_LIFETIME": timedelta(minutes=15),
+    # "REFRESH_TOKEN_LIFETIME": timedelta(days=90),
+    # # True means that after a refresh tokens lifetime has expired, a new refresh token will be created with out the user needing to log back in
+    # # Note: this is ONLY true if the user has been active within the refresh token lifetime
+    # "ROTATE_REFRESH_TOKENS": True,
+    # # True means that after a refresh token has been used to obtain a new access token, the old refresh token will be unusable
+    # "BLACKLIST_AFTER_ROTATION": True,
+    # "UPDATE_LAST_LOGIN": False,
+    # "ALGORITHM": "HS256",
+    # "SIGNING_KEY": SECRET_KEY,
+    # "VERIFYING_KEY": "",
+    # "AUDIENCE": None,
+    # "ISSUER": None,
+    # "JSON_ENCODER": None,
+    # "JWK_URL": None,
+    # "LEEWAY": 0,
+    "AUTH_HEADER_TYPES": ("JWT",),
+    # "AUTH_HEADER_NAME": "HTTP_AUTHORIZATION",
+    # "USER_ID_FIELD": "id",
+    # "USER_ID_CLAIM": "user_id",
+    # "USER_AUTHENTICATION_RULE": "rest_framework_simplejwt.authentication.default_user_authentication_rule",
+    # "AUTH_TOKEN_CLASSES": ("rest_framework_simplejwt.tokens.AccessToken",),
+    # "TOKEN_TYPE_CLAIM": "token_type",
+    # "TOKEN_USER_CLASS": "rest_framework_simplejwt.models.TokenUser",
+    # "JTI_CLAIM": "jti",
+    # "SLIDING_TOKEN_REFRESH_EXP_CLAIM": "refresh_exp",
+    # "SLIDING_TOKEN_LIFETIME": timedelta(minutes=5),
+    # "SLIDING_TOKEN_REFRESH_LIFETIME": timedelta(days=1),
+    # # "TOKEN_OBTAIN_SERIALIZER": "rest_framework_simplejwt.serializers.TokenObtainPairSerializer",
+    # # It will work instead of the default serializer(TokenObtainPairSerializer).
+    # "TOKEN_OBTAIN_SERIALIZER": "app.api.serializers.MyTokenObtainPairSerializer",
+    # "TOKEN_REFRESH_SERIALIZER": "rest_framework_simplejwt.serializers.TokenRefreshSerializer",
+    # "TOKEN_VERIFY_SERIALIZER": "rest_framework_simplejwt.serializers.TokenVerifySerializer",
+    # "TOKEN_BLACKLIST_SERIALIZER": "rest_framework_simplejwt.serializers.TokenBlacklistSerializer",
+    # "SLIDING_TOKEN_OBTAIN_SERIALIZER": "rest_framework_simplejwt.serializers.TokenObtainSlidingSerializer",
+    # "SLIDING_TOKEN_REFRESH_SERIALIZER": "rest_framework_simplejwt.serializers.TokenRefreshSlidingSerializer",
 }
 
 # CORS config
@@ -190,3 +204,24 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 # Auth User Model - Defines the user model that Django will use to authenticate and authorize (in our case the custom model)
 AUTH_USER_MODEL = "users.UserAccount"
+
+# Djoer Email Config
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 587
+EMAIL_HOST_USER = "warriorenglishapp@gmail.com"
+EMAIL_HOST_PASSWORD = "gyftwejyufhaotuj"
+
+DJOSER = {
+    "LOGIN_FIELD": "email",
+    "USER_CREATE_PASSWORD_RETYPE": True,
+    "PASSWORD_CHANGED_EMAIL_CONFIRMATION": True,
+    "SEND_CONFIRMATION_EMAIL": True,
+    "SET_USERNAME_RETYPE": True,
+    "SET_PASSWORD_RETYPE": True,
+    "PASSWORD_RESET_CONFIRM_URL": "password/reset/confirm/{uid}/{token}",
+    "USERNAME_RESET_CONFIRM_URL": "email/reset/confirm/{uid}/{token}",
+    "ACTIVATION_URL": "activate/{uid}/{token}",
+    "SEND_ACTIVATION_EMAIL": True,
+    "SERIALIZERS": {},
+}
