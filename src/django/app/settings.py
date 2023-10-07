@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "rest_framework_simplejwt.token_blacklist",
     "corsheaders",
+    "djoser",
 ]
 
 MIDDLEWARE = [
@@ -185,3 +186,7 @@ SIMPLE_JWT = {
 
 # CORS config
 CORS_ALLOW_ALL_ORIGINS = True
+
+
+# Auth User Model - Defines the user model that Django will use to authenticate and authorize (in our case the custom model)
+AUTH_USER_MODEL = "users.UserAccount"
