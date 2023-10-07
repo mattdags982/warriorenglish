@@ -5,7 +5,7 @@ import {
   JWTAuthenticateUser,
   JWTRefreshToken,
   getTranslations,
-} from "../../api/auth";
+} from "@/app/api/auth";
 import { useRouter } from "next/navigation";
 import { Button } from "@mui/material";
 
