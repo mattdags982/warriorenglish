@@ -12,10 +12,18 @@ import {
   Typography,
 } from "@mui/material";
 import { createUser } from "@/app/api/auth";
+import Link from "next/link";
+import { useRegisterMutation } from "@/redux/features/authApiSlice";
+
+interface Props {
+  params: {
+    language_code: string;
+  };
+}
 
 const SignupSchema = Yup.object().shape({
-  userName: Yup.string()
-    .required("Username is required")
+  name: Yup.string()
+    .required("Name is required")
     .matches(/^[a-zA-Z\s]+$/, "Only alphabetic characters allowed"),
   email: Yup.string().email("Invalid email").required("Email is required"),
   password: Yup.string()
@@ -24,18 +32,19 @@ const SignupSchema = Yup.object().shape({
   country: Yup.string().required("Country is required"),
 });
 
-const Signup: React.FC = () => {
+const Signup = ({ params: { language_code } }: Props) => {
+  const [register, { isLoading }] = useRegisterMutation();
+
   const formik = useFormik({
     initialValues: {
-      userName: "",
+      name: "",
       email: "",
       password: "",
       country: "",
     },
     validationSchema: SignupSchema,
     onSubmit: async (values) => {
-      const res = await createUser(values);
-      console.log(res);
+      register(values);
     },
   });
 
@@ -45,18 +54,18 @@ const Signup: React.FC = () => {
         Signup
       </Typography>
       <form
-        className="flex flex-col gap-8 min-w-[608px] mt-12"
+        className="flex flex-col gap-8 min-w-[608px] my-12"
         onSubmit={formik.handleSubmit}
       >
         <TextField
           fullWidth
-          id="userName"
-          name="userName"
+          id="name"
+          name="name"
           label="Username"
-          value={formik.values.userName}
+          value={formik.values.name}
           onChange={formik.handleChange}
-          error={formik.touched.userName && Boolean(formik.errors.userName)}
-          helperText={formik.touched.userName && formik.errors.userName}
+          error={formik.touched.name && Boolean(formik.errors.name)}
+          helperText={formik.touched.name && formik.errors.name}
         />
         <TextField
           fullWidth
@@ -101,6 +110,7 @@ const Signup: React.FC = () => {
           Submit
         </Button>
       </form>
+      <Link href={`/${language_code}/auth/login`}>Login</Link>
     </div>
   );
 };

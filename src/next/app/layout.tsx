@@ -29,9 +29,6 @@ export default function RootLayout({
                   <Link href={"/"}>Warrior English</Link>
                 </span>
               </Typography>
-              <div className="flex gap-4">
-                <Link href={"es/login"}>Login</Link>
-              </div>
             </div>
           </AppBar>
           <div className="h-[calc(100vh-66px)]">{children}</div>
