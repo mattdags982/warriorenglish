@@ -228,6 +228,8 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = "warriorenglishapp@gmail.com"
 EMAIL_HOST_PASSWORD = "gyftwejyufhaotuj"
 EMAIL_USE_TLS = True
+# variables for email templates
+DOMAIN = "localhost:3000/es/auth"
 
 DJOSER = {
     "LOGIN_FIELD": "email",
