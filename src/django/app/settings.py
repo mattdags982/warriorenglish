@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",
-    "rest_framework_simplejwt.token_blacklist",
+    # "rest_framework_simplejwt.token_blacklist",
     "corsheaders",
     "djoser",
 ]
@@ -153,7 +153,9 @@ REST_FRAMEWORK = {
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
     "PAGE_SIZE": 10,
     "DEFAULT_PERMISSION_CLASSES": [
-        "rest_framework.permissions.IsAuthenticated",
+        # TODO: change this back to IsAuthenticated and ovveride permissions of specific views
+        # "rest_framework.permissions.IsAuthenticated",
+        "rest_framework.permissions.AllowAny"
     ],
     "DEFAULT_AUTHENTICATION_CLASSES": ("users.authentication.CustomJWTAuthentication",),
 }
@@ -163,8 +165,8 @@ REST_FRAMEWORK = {
 
 SIMPLE_JWT = {
     # Note that these match the cookie lifetimes
-    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=5),
-    "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
+    "ACCESS_TOKEN_LIFETIME": timedelta(days=1),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=5),
     # # True means that after a refresh tokens lifetime has expired, a new refresh token will be created with out the user needing to log back in
     # # Note: this is ONLY true if the user has been active within the refresh token lifetime
     # "ROTATE_REFRESH_TOKENS": True,
@@ -211,14 +213,12 @@ AUTH_USER_MODEL = "users.UserAccount"
 
 # Cookie Custom Settings
 AUTH_COOKIE = "access"
-# This should match the JWT access token lifetime
-AUTH_COOKIE_ACCESS_MAX_AGE = 60 * 5  # 5 minutes
-# This should match the JWT refresh token lifetime
-AUTH_COOKIE_REFRESH_MAX_AGE = 60 * 60 * 24  # 1 day
-AUTH_COOKIE_SECURE = False  # THIS NEEDS TO BE TRUE FOR PRODUCTION
+# This should match the access/refresh token lifetime
+AUTH_COOKIE_MAX_AGE = 60 * 60 * 24  # 1 day
+AUTH_COOKIE_SECURE = False  # TODO: THIS NEEDS TO BE TRUE FOR PRODUCTION
 AUTH_COOKIE_HTTPONLY = True
 AUTH_COOKIE_PATH = "/"
-AUTH_COOKIE_SAMESITE = "Lax"  # THIS NEEDS TO BE "NONE" FOR PRODUCTION
+AUTH_COOKIE_SAMESITE = "Lax"  # TODO: THIS NEEDS TO BE "NONE" FOR PRODUCTION
 
 
 # Djoer Email Config
@@ -228,8 +228,8 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = "warriorenglishapp@gmail.com"
 EMAIL_HOST_PASSWORD = "gyftwejyufhaotuj"
 EMAIL_USE_TLS = True
-# variables for email templates
-DOMAIN = "localhost:3000/es/auth"
+# TODO: variables for email templates
+DOMAIN = "localhost:3000/es"
 
 DJOSER = {
     "LOGIN_FIELD": "email",
@@ -239,9 +239,8 @@ DJOSER = {
     "SEND_CONFIRMATION_EMAIL": True,
     "SET_USERNAME_RETYPE": True,
     "SET_PASSWORD_RETYPE": True,
-    "PASSWORD_RESET_CONFIRM_URL": "password/reset/confirm/{uid}/{token}",
-    "USERNAME_RESET_CONFIRM_URL": "email/reset/confirm/{uid}/{token}",
-    "ACTIVATION_URL": "activate/{uid}/{token}",
+    "PASSWORD_RESET_CONFIRM_URL": "auth/password-reset/{uid}/{token}",
+    "ACTIVATION_URL": "auth/activate/{uid}/{token}",
     "SEND_ACTIVATION_EMAIL": True,
     "TOKEN_MODEL": None,
     "SERIALIZERS": {
