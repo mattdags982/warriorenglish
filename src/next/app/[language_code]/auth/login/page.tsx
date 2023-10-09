@@ -8,6 +8,8 @@ import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import Spinner from "@/app/components/common/Spinner";
 import Link from "next/link";
+import { setAuth } from "@/redux/features/authSlice";
+import { useAppDispatch } from "@/redux/hooks";
 
 interface Props {
   params: {
@@ -22,6 +24,7 @@ const LoginSchema = Yup.object().shape({
 
 const Login = ({ params: { language_code } }: Props) => {
   const router = useRouter();
+  const dispatch = useAppDispatch();
   const [login, { isLoading }] = useLoginMutation();
 
   const formik = useFormik({
@@ -34,6 +37,7 @@ const Login = ({ params: { language_code } }: Props) => {
       login(values)
         .unwrap()
         .then(() => {
+          dispatch(setAuth());
           toast.success("Logged in");
           router.push(`/${language_code}`);
         })
