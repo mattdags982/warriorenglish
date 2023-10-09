@@ -5,6 +5,7 @@ import AppBar from "@mui/material/AppBar";
 import Typography from "@mui/material/Typography";
 import Link from "next/link";
 import Provider from "@/redux/provider";
+import { Setup } from "@/app/components/utils";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,6 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Provider>
+          <Setup />
           <AppBar position="static">
             <div className="h-[66px] px-4 py-2 flex items-center">
               <Typography className="flex-1" variant="h6">

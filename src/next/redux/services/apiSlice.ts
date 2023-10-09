@@ -11,7 +11,7 @@ import { Mutex } from "async-mutex";
 const mutex = new Mutex();
 const baseQuery = fetchBaseQuery({
   // may need to change to /auth for your own endpoints
-  baseUrl: `${process.env.NEXT_PUBLIC_HOST}/api`,
+  baseUrl: `${process.env.NEXT_PUBLIC_HOST}/auth`,
   credentials: "include",
 });
 const baseQueryWithReauth: BaseQueryFn<

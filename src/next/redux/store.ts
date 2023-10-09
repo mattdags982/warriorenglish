@@ -8,6 +8,8 @@ export const makeStore = () => {
       [apiSlice.reducerPath]: apiSlice.reducer,
       auth: authReducer,
     },
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware().concat(apiSlice.middleware),
     // Question: where do I set this?
     devTools: process.env.NODE_ENV !== "production",
   });

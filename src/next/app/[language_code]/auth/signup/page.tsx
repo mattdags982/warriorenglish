@@ -14,6 +14,9 @@ import {
 import { createUser } from "@/app/api/auth";
 import Link from "next/link";
 import { useRegisterMutation } from "@/redux/features/authApiSlice";
+import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
+import Spinner from "@/app/components/common/Spinner";
 
 interface Props {
   params: {
@@ -29,10 +32,14 @@ const SignupSchema = Yup.object().shape({
   password: Yup.string()
     .min(8, "Password must be at least 8 characters")
     .required("Password is required"),
+  re_password: Yup.string()
+    .oneOf([Yup.ref("password"), undefined], "Passwords must match")
+    .required("Confirm password is required"),
   country: Yup.string().required("Country is required"),
 });
 
 const Signup = ({ params: { language_code } }: Props) => {
+  const router = useRouter();
   const [register, { isLoading }] = useRegisterMutation();
 
   const formik = useFormik({
@@ -40,11 +47,20 @@ const Signup = ({ params: { language_code } }: Props) => {
       name: "",
       email: "",
       password: "",
+      re_password: "",
       country: "",
     },
     validationSchema: SignupSchema,
     onSubmit: async (values) => {
-      register(values);
+      register(values)
+        .unwrap()
+        .then(() => {
+          toast.success("Please check email to verify your account");
+          router.push(`/${language_code}/auth/login`);
+        })
+        .catch(() => {
+          toast.error("Failed to register your account");
+        });
     },
   });
 
@@ -61,7 +77,7 @@ const Signup = ({ params: { language_code } }: Props) => {
           fullWidth
           id="name"
           name="name"
-          label="Username"
+          label="Name"
           value={formik.values.name}
           onChange={formik.handleChange}
           error={formik.touched.name && Boolean(formik.errors.name)}
@@ -88,6 +104,19 @@ const Signup = ({ params: { language_code } }: Props) => {
           error={formik.touched.password && Boolean(formik.errors.password)}
           helperText={formik.touched.password && formik.errors.password}
         />
+        <TextField
+          fullWidth
+          id="re_password"
+          name="re_password"
+          label="Confirm password"
+          type="password"
+          value={formik.values.re_password}
+          onChange={formik.handleChange}
+          error={
+            formik.touched.re_password && Boolean(formik.errors.re_password)
+          }
+          helperText={formik.touched.re_password && formik.errors.re_password}
+        />
         <FormControl fullWidth>
           <InputLabel id="country-label">Country</InputLabel>
           <Select
@@ -107,7 +136,7 @@ const Signup = ({ params: { language_code } }: Props) => {
           )}
         </FormControl>
         <Button color="primary" variant="contained" fullWidth type="submit">
-          Submit
+          {isLoading ? <Spinner /> : "Sign up"}
         </Button>
       </form>
       <Link href={`/${language_code}/auth/login`}>Login</Link>

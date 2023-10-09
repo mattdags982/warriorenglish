@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 import os
+from datetime import timedelta
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -154,17 +155,16 @@ REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": [
         "rest_framework.permissions.IsAuthenticated",
     ],
-    "DEFAULT_AUTHENTICATION_CLASSES": (
-        "rest_framework_simplejwt.authentication.JWTAuthentication",
-    ),
+    "DEFAULT_AUTHENTICATION_CLASSES": ("users.authentication.CustomJWTAuthentication",),
 }
 
 # JWT auth
 
 
 SIMPLE_JWT = {
-    # "ACCESS_TOKEN_LIFETIME": timedelta(minutes=15),
-    # "REFRESH_TOKEN_LIFETIME": timedelta(days=90),
+    # Note that these match the cookie lifetimes
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=5),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
     # # True means that after a refresh tokens lifetime has expired, a new refresh token will be created with out the user needing to log back in
     # # Note: this is ONLY true if the user has been active within the refresh token lifetime
     # "ROTATE_REFRESH_TOKENS": True,
@@ -209,6 +209,18 @@ CORS_ALLOW_CREDENTIALS = True
 # Auth User Model - Defines the user model that Django will use to authenticate and authorize (in our case the custom model)
 AUTH_USER_MODEL = "users.UserAccount"
 
+# Cookie Custom Settings
+AUTH_COOKIE = "access"
+# This should match the JWT access token lifetime
+AUTH_COOKIE_ACCESS_MAX_AGE = 60 * 5  # 5 minutes
+# This should match the JWT refresh token lifetime
+AUTH_COOKIE_REFRESH_MAX_AGE = 60 * 60 * 24  # 1 day
+AUTH_COOKIE_SECURE = False  # THIS NEEDS TO BE TRUE FOR PRODUCTION
+AUTH_COOKIE_HTTPONLY = True
+AUTH_COOKIE_PATH = "/"
+AUTH_COOKIE_SAMESITE = "None"
+
+
 # Djoer Email Config
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
@@ -220,6 +232,7 @@ EMAIL_USE_TLS = True
 DJOSER = {
     "LOGIN_FIELD": "email",
     "USER_CREATE_PASSWORD_RETYPE": True,
+    "PASSWORD_RESET_CONFIRM_RETYPE": True,
     "PASSWORD_CHANGED_EMAIL_CONFIRMATION": True,
     "SEND_CONFIRMATION_EMAIL": True,
     "SET_USERNAME_RETYPE": True,
@@ -228,6 +241,7 @@ DJOSER = {
     "USERNAME_RESET_CONFIRM_URL": "email/reset/confirm/{uid}/{token}",
     "ACTIVATION_URL": "activate/{uid}/{token}",
     "SEND_ACTIVATION_EMAIL": True,
+    "TOKEN_MODEL": None,
     "SERIALIZERS": {
         "user_create": "users.serializers.UserCreateSerializer",
         "user": "users.serializers.UserCreateSerializer",

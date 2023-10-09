@@ -28,7 +28,7 @@ urlpatterns = [
     path("api/", include("app.api.urls")),
     # djoser
     path("auth/", include("djoser.urls")),
-    path("auth/", include("djoser.urls.jwt")),
+    path("auth/", include("users.urls")),
 ]
 
 # this is for all the other paths (djoser). Im not positive, but this may need to be updated later on
