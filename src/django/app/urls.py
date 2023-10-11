@@ -27,8 +27,10 @@ urlpatterns = [
     # added for auth jwt
     path("api/", include("app.api.urls")),
     # djoser
-    path("auth/", include("djoser.urls")),
+    # the ORDER OF THIS matter because it will match the first one it finds
     path("auth/", include("users.urls")),
+    # I wonder if ill be able to remove this because the custom user viewset will take care of djoser stuff
+    path("auth/", include("djoser.urls")),
 ]
 
 # this is for all the other paths (djoser). Im not positive, but this may need to be updated later on

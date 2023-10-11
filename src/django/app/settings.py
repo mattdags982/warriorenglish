@@ -66,7 +66,10 @@ TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         # added this for front end stuff, not really sure what it does. Might need to remove later on
-        "DIRS": [os.path.join(BASE_DIR, "build")],
+        "DIRS": [
+            os.path.join(BASE_DIR, "app", "templates", "users", "email"),
+            os.path.join(BASE_DIR, "build"),
+        ],
         # "DIRS": [],
         "APP_DIRS": True,
         "OPTIONS": {
@@ -247,5 +250,8 @@ DJOSER = {
         "user_create": "users.serializers.UserCreateSerializer",
         "user": "users.serializers.UserCreateSerializer",
         "user_delete": "djoser.serializers.UserDeleteSerializer",
+    },
+    "EMAIL": {
+        "password_reset": "users.email.CustomPasswordResetEmail",
     },
 }

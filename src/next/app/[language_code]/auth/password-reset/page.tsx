@@ -31,7 +31,7 @@ const ResetPassword = ({ params: { language_code } }: Props) => {
     validationSchema: RestPasswordSchema,
     onSubmit: async (values) => {
       const { email } = values;
-      resetPassword(email)
+      resetPassword({ email, language_code })
         .unwrap()
         .then(() => {
           toast.success("Request sent. Check your email for reset link");
