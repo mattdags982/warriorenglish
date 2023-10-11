@@ -155,7 +155,7 @@ REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": [
         # TODO: change this back to IsAuthenticated and ovveride permissions of specific views
         # "rest_framework.permissions.IsAuthenticated",
-        "rest_framework.permissions.AllowAny"
+        "rest_framework.permissions.AllowAny",
     ],
     "DEFAULT_AUTHENTICATION_CLASSES": ("users.authentication.CustomJWTAuthentication",),
 }
@@ -218,7 +218,7 @@ AUTH_COOKIE_MAX_AGE = 60 * 60 * 24  # 1 day
 AUTH_COOKIE_SECURE = False  # TODO: THIS NEEDS TO BE TRUE FOR PRODUCTION
 AUTH_COOKIE_HTTPONLY = True
 AUTH_COOKIE_PATH = "/"
-AUTH_COOKIE_SAMESITE = "Lax"  # TODO: THIS NEEDS TO BE "NONE" FOR PRODUCTION
+AUTH_COOKIE_SAMESITE = "None"  # TODO: THIS NEEDS TO BE "NONE" FOR PRODUCTION
 
 
 # Djoer Email Config
