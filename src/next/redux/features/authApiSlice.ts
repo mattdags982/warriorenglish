@@ -60,10 +60,16 @@ const authApiSlice = apiSlice.injectEndpoints({
       }),
     }),
     resetPasswordConfirm: builder.mutation({
-      query: ({ uid, token, new_password, re_new_password }) => ({
+      query: ({
+        language_code,
+        uid,
+        token,
+        new_password,
+        re_new_password,
+      }) => ({
         url: "/users/reset_password_confirm/",
         method: "POST",
-        body: { uid, token, new_password, re_new_password },
+        body: { language_code, uid, token, new_password, re_new_password },
       }),
     }),
   }),

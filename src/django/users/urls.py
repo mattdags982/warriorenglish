@@ -16,4 +16,8 @@ urlpatterns = [
     path(
         "users/reset_password/", CustomUserViewSet.as_view({"post": "reset_password"})
     ),
+    path(
+        "users/reset_password_confirm/",
+        CustomUserViewSet.as_view({"post": "reset_password_confirm"}),
+    ),
 ]

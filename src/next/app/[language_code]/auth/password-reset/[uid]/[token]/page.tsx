@@ -40,7 +40,7 @@ const ResetPasswordConfirm = ({
     validationSchema: RestPasswordConfirmSchema,
     onSubmit: async (values) => {
       console.log(values);
-      resetPasswordConfirm({ uid, token, ...values })
+      resetPasswordConfirm({ language_code, uid, token, ...values })
         .unwrap()
         .then(() => {
           toast.success("Password reset successfully");

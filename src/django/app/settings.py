@@ -253,5 +253,6 @@ DJOSER = {
     },
     "EMAIL": {
         "password_reset": "users.email.CustomPasswordResetEmail",
+        "password_changed_confirmation": "users.email.CustomPasswordChangedConfirmationEmail",
     },
 }
