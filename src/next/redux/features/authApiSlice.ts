@@ -9,11 +9,6 @@ interface User {
   updated_at: string;
 }
 
-// interface CreateUserResponse {
-//   success: boolean;
-//   user: User;
-// }
-
 const authApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     retrieveUser: builder.query<User, void>({
@@ -27,10 +22,17 @@ const authApiSlice = apiSlice.injectEndpoints({
       }),
     }),
     register: builder.mutation({
-      query: ({ name, email, password, re_password, country }) => ({
+      query: ({
+        name,
+        email,
+        password,
+        re_password,
+        country,
+        language_code,
+      }) => ({
         url: "/users/",
         method: "POST",
-        body: { name, email, password, re_password, country },
+        body: { name, email, password, re_password, country, language_code },
       }),
     }),
     verify: builder.mutation({
@@ -46,10 +48,10 @@ const authApiSlice = apiSlice.injectEndpoints({
       }),
     }),
     activation: builder.mutation({
-      query: ({ uid, token }) => ({
+      query: ({ uid, token, language_code }) => ({
         url: "/users/activation/",
         method: "POST",
-        body: { uid, token },
+        body: { uid, token, language_code },
       }),
     }),
     resetPassword: builder.mutation({

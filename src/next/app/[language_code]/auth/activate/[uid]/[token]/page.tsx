@@ -21,7 +21,7 @@ export default function Activate({
   const [activate, { isLoading }] = useActivationMutation();
 
   useEffect(() => {
-    activate({ uid, token })
+    activate({ uid, token, language_code })
       .unwrap()
       .then(() => {
         toast.success("Account activated successfully");

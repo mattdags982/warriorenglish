@@ -1,6 +1,7 @@
 "use client";
 
 // TODO: Country should really be "preffered language", I can autofill based on the url.
+// TODO: User with this account already exists handler, need to display to the user response error
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import {
@@ -53,11 +54,12 @@ const Signup = ({ params: { language_code } }: Props) => {
     },
     validationSchema: SignupSchema,
     onSubmit: async (values) => {
-      register(values)
+      console.log(language_code);
+      register({ ...values, language_code })
         .unwrap()
         .then(() => {
           toast.success("Please check email to verify your account");
-          router.push(`/${language_code}/auth/login`);
+          // router.push(`/${language_code}/auth/login`);
         })
         .catch(() => {
           toast.error("Failed to register your account");

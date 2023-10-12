@@ -1,0 +1,21 @@
+{% load i18n %}
+
+{% block subject %}
+{% blocktrans %}{{ site_name }} - Votre compte a été créé et activé avec succès !{% endblocktrans %}
+{% endblock %}
+
+{% block text_body %}
+{% trans "Votre compte a été créé et est prêt à être utilisé !" %}
+
+{% trans "Merci d'utiliser notre site !" %}
+
+{% blocktrans %}L'équipe de {{ site_name }}{% endblocktrans %}
+{% endblock text_body %}
+
+{% block html_body %}
+<p>{% trans "Votre compte a été créé et est prêt à être utilisé !" %}</p>
+
+<p>{% trans "Merci d'utiliser notre site !" %}</p>
+
+<p>{% blocktrans %}L'équipe de {{ site_name }}{% endblocktrans %}</p>
+{% endblock html_body %}
