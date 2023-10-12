@@ -21,15 +21,10 @@ from django.views.generic import TemplateView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("api-auth/", include("rest_framework.urls", namespace="rest_framework")),
     path("api/", include("stories.urls")),
-    # added for auth jwt
-    path("api/", include("app.api.urls")),
-    # djoser
     # the ORDER OF THIS matter because it will match the first one it finds
-    path("auth/", include("users.urls")),
-    # I wonder if ill be able to remove this because the custom user viewset will take care of djoser stuff
-    path("auth/", include("djoser.urls")),
+    path("auth/", include("users.urls")),  # custom djoser urls
+    path("auth/", include("djoser.urls")),  # can I remove?
 ]
 
 # this is for all the other paths (djoser). Im not positive, but this may need to be updated later on
