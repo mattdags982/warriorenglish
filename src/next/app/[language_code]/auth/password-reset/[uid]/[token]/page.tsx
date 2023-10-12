@@ -1,5 +1,6 @@
 "use client";
 
+// TODO: The password will fail if it is "too common". Im sure theres other safegauding other than that. You need to display to the user why it didnt work.
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { Button, TextField, Typography } from "@mui/material";

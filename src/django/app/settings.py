@@ -232,7 +232,7 @@ EMAIL_HOST_USER = "warriorenglishapp@gmail.com"
 EMAIL_HOST_PASSWORD = "gyftwejyufhaotuj"
 EMAIL_USE_TLS = True
 # TODO: variables for email templates
-DOMAIN = "localhost:3000/es"
+DOMAIN = "localhost:3000"
 
 DJOSER = {
     "LOGIN_FIELD": "email",
