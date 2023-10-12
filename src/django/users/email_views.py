@@ -1,4 +1,3 @@
-from django.utils.timezone import now
 from djoser import signals
 from djoser.compat import get_user_email
 from djoser.conf import settings
@@ -7,11 +6,12 @@ from rest_framework import status
 from rest_framework.decorators import action
 from rest_framework.response import Response
 
+from django.utils.timezone import now
+
 
 class CustomUserViewSet(DjoserUserViewSet):
     @action(["post"], detail=False)
     def reset_password(self, request, *args, **kwargs):
-        print("custom reset password")
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         user = serializer.get_user()
@@ -46,7 +46,6 @@ class CustomUserViewSet(DjoserUserViewSet):
     def perform_create(self, serializer, *args, **kwargs):
         # added
         language_code = self.request.data.get("language_code", "es")
-        print("perform create: ", language_code)
         user = serializer.save(*args, **kwargs)
         signals.user_registered.send(
             sender=self.__class__, user=user, request=self.request
@@ -63,7 +62,6 @@ class CustomUserViewSet(DjoserUserViewSet):
     def activation(self, request, *args, **kwargs):
         # added
         language_code = request.data.get("language_code", "es")
-        print("activation email_views: ", language_code)
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         user = serializer.user

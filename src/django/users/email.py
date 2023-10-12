@@ -30,7 +30,6 @@ class CustomPasswordChangedConfirmationEmail(DjoserPasswordChangedConfirmationEm
 class CustomActivationEmail(DjoserActivationEmail):
     def send(self, to, *args, **kwargs):
         language_code = self.context.get("language_code", "es")
-        print("email.py custom activation email: ", language_code)
 
         self.template_name = f"activation_{language_code}.html"
 
@@ -40,7 +39,6 @@ class CustomActivationEmail(DjoserActivationEmail):
 class CustomConfirmationEmail(DjoserConfirmationEmail):
     def send(self, to, *args, **kwargs):
         language_code = self.context.get("language_code", "es")
-        print("email.py custom confirmation email: ", language_code)
 
         self.template_name = f"confirmation_{language_code}.html"
 
