@@ -1,272 +1,278 @@
-[
-  {
-    "title": "The Gourmet Dilemma",
-    "description": "A man tries to order food at a restaurant, but the conversation takes some unexpected twists.",
-    "conversations": [
-      {
-        "name": "Waitress",
-        "contentEnglish": "Good evening, sir. Would you like to start with something to drink?",
-        "contentSpanish": "Buenas noches, señor. ¿Le gustaría empezar con algo para beber?",
-        "contentItalian": "Buonasera signore. Vorrebbe iniziare con qualcosa da bere?",
-        "contentFrench": "Bonsoir monsieur. Souhaitez-vous commencer par quelque chose à boire?"
-      },
-      {
-        "name": "Man",
-        "contentEnglish": "Hmm, do you serve organic, gluten-free water?",
-        "contentSpanish": "Hmm, ¿sirven agua orgánica sin gluten?",
-        "contentItalian": "Hmm, avete acqua organica senza glutine?",
-        "contentFrench": "Hmm, servez-vous de l'eau biologique sans gluten?"
-      },
-      {
-        "name": "Waitress",
-        "contentEnglish": "Uh, water is naturally gluten-free, sir.",
-        "contentSpanish": "Eh, el agua es naturalmente sin gluten, señor.",
-        "contentItalian": "Eh, l'acqua è naturalmente senza glutine, signore.",
-        "contentFrench": "Euh, l'eau est naturellement sans gluten, monsieur."
-      },
-      {
-        "name": "Man",
-        "contentEnglish": "Excellent! I'll take a glass of that exquisite water.",
-        "contentSpanish": "¡Excelente! Tomaré un vaso de esa agua exquisita.",
-        "contentItalian": "Eccellente! Prenderò un bicchiere di quell'acqua squisita.",
-        "contentFrench": "Excellent ! Je prendrai un verre de cette eau exquise."
-      },
-      {
-        "name": "Waitress",
-        "contentEnglish": "Very well. Are you ready to order food?",
-        "contentSpanish": "Muy bien. ¿Está listo para ordenar comida?",
-        "contentItalian": "Molto bene. È pronto per ordinare del cibo?",
-        "contentFrench": "Très bien. Êtes-vous prêt à commander à manger?"
-      },
-      {
-        "name": "Man",
-        "contentEnglish": "Yes, can I have a vegan steak?",
-        "contentSpanish": "Sí, ¿puedo tener un bistec vegano?",
-        "contentItalian": "Sì, posso avere una bistecca vegana?",
-        "contentFrench": "Oui, puis-je avoir un steak végétalien?"
-      },
-      {
-        "name": "Waitress",
-        "contentEnglish": "I'm afraid we only serve real steak, sir.",
-        "contentSpanish": "Me temo que solo servimos bistec real, señor.",
-        "contentItalian": "Temo che serviamo solo bistecche vere, signore.",
-        "contentFrench": "J'ai bien peur que nous ne servions que de vrais steaks, monsieur."
-      },
-      {
-        "name": "Man",
-        "contentEnglish": "Ah, too bad. Alright, I'll go for the chicken parmesan then.",
-        "contentSpanish": "Ah, qué mal. De acuerdo, entonces tomaré el pollo a la parmesana.",
-        "contentItalian": "Ah, peccato. Va bene, allora prendo il pollo alla parmigiana.",
-        "contentFrench": "Ah, dommage. D'accord, je prendrai le poulet parmesan alors."
-      },
-      {
-        "name": "Waitress",
-        "contentEnglish": "Would you like that cooked, or should I just bring out a chicken and some cheese?",
-        "contentSpanish": "¿Le gustaría eso cocido, o debo traer solo un pollo y un poco de queso?",
-        "contentItalian": "Lo vuole cotto, o dovrei portare fuori solo un pollo e un po' di formaggio?",
-        "contentFrench": "Voulez-vous cela cuit, ou devrais-je simplement apporter un poulet et du fromage?"
-      },
-      {
-        "name": "Man",
-        "contentEnglish": "Ha! You've got a sense of humor. Cooked, please!",
-        "contentSpanish": "¡Ja! Tienes sentido del humor. ¡Cocido, por favor!",
-        "contentItalian": "Ah! Hai senso dell'umorismo. Cotto, per favore!",
-        "contentFrench": "Ha ! Vous avez le sens de l'humour. Cuit, s'il vous plaît!"
-      },
-      {
-        "name": "Waitress",
-        "contentEnglish": "Of course, sir. Anything else?",
-        "contentSpanish": "Por supuesto, señor. ¿Algo más?",
-        "contentItalian": "Certo, signore. Qualcos'altro?",
-        "contentFrench": "Bien sûr, monsieur. Autre chose?"
-      },
-      {
-        "name": "Man",
-        "contentEnglish": "A sense of purpose in life. But for now, the chicken will do.",
-        "contentSpanish": "Un sentido de propósito en la vida. Pero por ahora, el pollo estará bien.",
-        "contentItalian": "Un senso di scopo nella vita. Ma per ora, il pollo andrà bene.",
-        "contentFrench": "Un sens du but dans la vie. Mais pour l'instant, le poulet fera l'affaire."
-      }
-    ]
-  },
-  {
-    "title": "The Cab Ride Conundrum",
-    "description": "A woman tries to get a cab to a mysterious location, leading to a series of amusing exchanges.",
-    "conversations": [
-      {
-        "name": "Driver",
-        "contentEnglish": "Good day, ma'am. Where can I take you today?",
-        "contentSpanish": "Buen día, señora. ¿Adónde puedo llevarla hoy?",
-        "contentItalian": "Buona giornata, signora. Dove posso portarla oggi?",
-        "contentFrench": "Bonne journée, madame. Où puis-je vous emmener aujourd'hui?"
-      },
-      {
-        "name": "Woman",
-        "contentEnglish": "To the end of the rainbow, please!",
-        "contentSpanish": "¡Al final del arcoíris, por favor!",
-        "contentItalian": "Alla fine dell'arcobaleno, per favore!",
-        "contentFrench": "À la fin de l'arc-en-ciel, s'il vous plaît!"
-      },
-      {
-        "name": "Driver",
-        "contentEnglish": "Ha, I'll need some luck for that! Anywhere specific in mind?",
-        "contentSpanish": "Ja, ¡necesitaré algo de suerte para eso! ¿Tiene algún lugar específico en mente?",
-        "contentItalian": "Ah, avrò bisogno di un po' di fortuna per quello! Hai un posto specifico in mente?",
-        "contentFrench": "Ha, j'aurai besoin de chance pour ça! Vous avez un endroit spécifique en tête?"
-      },
-      {
-        "name": "Woman",
-        "contentEnglish": "Alright, to the city museum then.",
-        "contentSpanish": "Está bien, entonces al museo de la ciudad.",
-        "contentItalian": "Va bene, allora al museo della città.",
-        "contentFrench": "D'accord, au musée de la ville alors."
-      },
-      {
-        "name": "Driver",
-        "contentEnglish": "Great choice! Do you want to take the scenic route or the fastest one?",
-        "contentSpanish": "¡Buena elección! ¿Quiere tomar la ruta panorámica o la más rápida?",
-        "contentItalian": "Ottima scelta! Vuoi prendere la strada panoramica o la più veloce?",
-        "contentFrench": "Excellent choix ! Vous voulez prendre la route panoramique ou la plus rapide?"
-      },
-      {
-        "name": "Woman",
-        "contentEnglish": "Hmm, which one has more rainbows?",
-        "contentSpanish": "Hmm, ¿cuál tiene más arcoíris?",
-        "contentItalian": "Hmm, quale ha più arcobaleni?",
-        "contentFrench": "Hmm, lequel a le plus d'arc-en-ciels?"
-      },
-      {
-        "name": "Driver",
-        "contentEnglish": "I believe the scenic route might fulfill your rainbow desires.",
-        "contentSpanish": "Creo que la ruta panorámica podría cumplir sus deseos de arcoíris.",
-        "contentItalian": "Credo che la strada panoramica potrebbe soddisfare i tuoi desideri di arcobaleno.",
-        "contentFrench": "Je crois que la route panoramique pourrait répondre à vos désirs d'arc-en-ciel."
-      },
-      {
-        "name": "Woman",
-        "contentEnglish": "Splendid! Let's chase some rainbows.",
-        "contentSpanish": "¡Espléndido! Vamos a perseguir algunos arcoíris.",
-        "contentItalian": "Splendido! Inseguiamo alcuni arcobaleni.",
-        "contentFrench": "Splendide ! Poursuivons quelques arc-en-ciels."
-      },
-      {
-        "name": "Driver",
-        "contentEnglish": "Hold tight! We’re off on a colorful journey.",
-        "contentSpanish": "¡Agárrese fuerte! Nos vamos en un viaje colorido.",
-        "contentItalian": "Tieniti forte! Siamo in viaggio in un viaggio colorato.",
-        "contentFrench": "Accrochez-vous ! Nous partons pour un voyage haut en couleur."
-      },
-      {
-        "name": "Woman",
-        "contentEnglish": "Do you think we’ll find a pot of gold?",
-        "contentSpanish": "¿Crees que encontraremos una olla de oro?",
-        "contentItalian": "Pensi che troveremo una pentola d'oro?",
-        "contentFrench": "Pensez-vous que nous trouverons un pot d'or?"
-      },
-      {
-        "name": "Driver",
-        "contentEnglish": "Well, ma'am, I can’t promise gold, but I assure you a golden experience!",
-        "contentSpanish": "Bueno, señora, no puedo prometerle oro, ¡pero le aseguro una experiencia dorada!",
-        "contentItalian": "Bene, signora, non posso prometterti oro, ma ti assicuro un'esperienza dorata!",
-        "contentFrench": "Eh bien, madame, je ne peux pas promettre d'or, mais je vous assure une expérience en or !"
-      },
-      {
-        "name": "Woman",
-        "contentEnglish": "That will do, Mr. Cab Driver. To the rainbows!",
-        "contentSpanish": "Eso servirá, Sr. Taxista. ¡A los arcoíris!",
-        "contentItalian": "Andrà bene, Signor Tassista. Agli arcobaleni!",
-        "contentFrench": "Ça ira, Monsieur le Chauffeur. Aux arc-en-ciels!"
-      }
-    ]
-  },
-  {
-    "title": "The Unexpected Sports Fan",
-    "description": "Two friends attend a sports game, but one reveals an unexpected side of themselves.",
-    "conversations": [
-      {
-        "name": "Jake",
-        "contentEnglish": "Hey Sarah, thanks for inviting me to this game! I've never watched live baseball before.",
-        "contentSpanish": "¡Hola Sarah, gracias por invitarme a este juego! Nunca he visto béisbol en vivo antes.",
-        "contentItalian": "Ehi Sarah, grazie per avermi invitato a questa partita! Non ho mai visto una partita di baseball dal vivo prima.",
-        "contentFrench": "Salut Sarah, merci de m'avoir invité à ce match! Je n'ai jamais vu de baseball en direct avant."
-      },
-      {
-        "name": "Sarah",
-        "contentEnglish": "Really? Prepare to get hooked! It's so much better live.",
-        "contentSpanish": "¿En serio? ¡Prepárate para engancharte! Es mucho mejor en vivo.",
-        "contentItalian": "Davvero? Preparati a diventare un fan! È molto meglio dal vivo.",
-        "contentFrench": "Vraiment ? Prépare-toi à devenir accro ! C'est tellement mieux en direct."
-      },
-      {
-        "name": "Jake",
-        "contentEnglish": "It's just... they just stand there most of the time, right?",
-        "contentSpanish": "Es solo que... ellos solo están parados la mayoría del tiempo, ¿verdad?",
-        "contentItalian": "È solo che... stanno lì fermi la maggior parte del tempo, giusto?",
-        "contentFrench": "C'est juste... ils restent là la plupart du temps, non?"
-      },
-      {
-        "name": "Sarah",
-        "contentEnglish": "Oh, just you wait! The excitement is all in the small details.",
-        "contentSpanish": "¡Oh, solo espera! La emoción está en los pequeños detalles.",
-        "contentItalian": "Oh, aspetta e vedrai! L'emozione è tutta nei piccoli dettagli.",
-        "contentFrench": "Oh, attends un peu ! L'excitation est dans les petits détails."
-      },
-      {
-        "name": "Jake",
-        "contentEnglish": "Well, I did bring my glove. Just in case a ball comes our way.",
-        "contentSpanish": "Bueno, traje mi guante. Por si acaso una pelota viene hacia nosotros.",
-        "contentItalian": "Beh, ho portato il mio guanto. Nel caso in cui una palla venga nella nostra direzione.",
-        "contentFrench": "Eh bien, j'ai apporté mon gant. Au cas où une balle viendrait dans notre direction."
-      },
-      {
-        "name": "Sarah",
-        "contentEnglish": "That's the spirit! Also, did you get a foam finger?",
-        "contentSpanish": "¡Ese es el espíritu! Además, ¿compraste un dedo de espuma?",
-        "contentItalian": "Questo è lo spirito! E poi, hai preso un dito di schiuma?",
-        "contentFrench": "C'est l'esprit ! Aussi, as-tu pris un doigt en mousse?"
-      },
-      {
-        "name": "Jake",
-        "contentEnglish": "I thought that was too cliché?",
-        "contentSpanish": "¿Pensé que eso era muy cliché?",
-        "contentItalian": "Pensavo fosse troppo cliché?",
-        "contentFrench": "J'ai pensé que c'était trop cliché ?"
-      },
-      {
-        "name": "Sarah",
-        "contentEnglish": "No way! It’s all part of the experience. I have an extra one here for you.",
-        "contentSpanish": "¡Para nada! Es parte de la experiencia. Tengo uno extra aquí para ti.",
-        "contentItalian": "Ma no! Fa tutto parte dell'esperienza. Ne ho uno in più qui per te.",
-        "contentFrench": "Pas du tout ! C'est tout une partie de l'expérience. J'en ai un en plus ici pour toi."
-      },
-      {
-        "name": "Jake",
-        "contentEnglish": "Haha, alright. I'm in! Go team!",
-        "contentSpanish": "Jaja, está bien. ¡Estoy dentro! ¡Vamos equipo!",
-        "contentItalian": "Haha, va bene. Ci sono! Forza squadra!",
-        "contentFrench": "Haha, d'accord. Je suis partant ! Allez l'équipe !"
-      },
-      {
-        "name": "Sarah",
-        "contentEnglish": "That's what I wanted to hear! Enjoy the game.",
-        "contentSpanish": "¡Eso es lo que quería escuchar! Disfruta el juego.",
-        "contentItalian": "È quello che volevo sentire! Goditi la partita.",
-        "contentFrench": "C'est ce que je voulais entendre ! Profite du match."
-      },
-      {
-        "name": "Jake",
-        "contentEnglish": "Thanks, Sarah. With you by my side, I think I just might.",
-        "contentSpanish": "Gracias, Sarah. Contigo a mi lado, creo que podría hacerlo.",
-        "contentItalian": "Grazie, Sarah. Con te al mio fianco, penso proprio di poterlo fare.",
-        "contentFrench": "Merci, Sarah. Avec toi à mes côtés, je pense que je pourrais bien le faire."
-      },
-      {
-        "name": "Sarah",
-        "contentEnglish": "Cheers to new experiences!",
-        "contentSpanish": "¡Brindemos por nuevas experiencias!",
-        "contentItalian": "Evviva le nuove esperienze!",
-        "contentFrench": "À de nouvelles expériences !"
-      }
-    ]
-  }
-]
+{
+  "title": "Beginnings",
+  "description": "The first step on a language learning journey",
+  "difficulty_rating": 1,
+  "category": "General",
+  "chapters": [
+    {
+      "title": "The Gourmet Dilemma",
+      "description": "A man tries to order food at a restaurant, but the conversation takes some unexpected twists.",
+      "blurbs": [
+        {
+          "name": "Waitress",
+          "contentEnglish": "Good evening, sir. Would you like to start with something to drink?",
+          "contentSpanish": "Buenas noches, señor. ¿Le gustaría empezar con algo para beber?",
+          "contentItalian": "Buonasera signore. Vorrebbe iniziare con qualcosa da bere?",
+          "contentFrench": "Bonsoir monsieur. Souhaitez-vous commencer par quelque chose à boire?"
+        },
+        {
+          "name": "Man",
+          "contentEnglish": "Hmm, do you serve organic, gluten-free water?",
+          "contentSpanish": "Hmm, ¿sirven agua orgánica sin gluten?",
+          "contentItalian": "Hmm, avete acqua organica senza glutine?",
+          "contentFrench": "Hmm, servez-vous de l'eau biologique sans gluten?"
+        },
+        {
+          "name": "Waitress",
+          "contentEnglish": "Uh, water is naturally gluten-free, sir.",
+          "contentSpanish": "Eh, el agua es naturalmente sin gluten, señor.",
+          "contentItalian": "Eh, l'acqua è naturalmente senza glutine, signore.",
+          "contentFrench": "Euh, l'eau est naturellement sans gluten, monsieur."
+        },
+        {
+          "name": "Man",
+          "contentEnglish": "Excellent! I'll take a glass of that exquisite water.",
+          "contentSpanish": "¡Excelente! Tomaré un vaso de esa agua exquisita.",
+          "contentItalian": "Eccellente! Prenderò un bicchiere di quell'acqua squisita.",
+          "contentFrench": "Excellent ! Je prendrai un verre de cette eau exquise."
+        },
+        {
+          "name": "Waitress",
+          "contentEnglish": "Very well. Are you ready to order food?",
+          "contentSpanish": "Muy bien. ¿Está listo para ordenar comida?",
+          "contentItalian": "Molto bene. È pronto per ordinare del cibo?",
+          "contentFrench": "Très bien. Êtes-vous prêt à commander à manger?"
+        },
+        {
+          "name": "Man",
+          "contentEnglish": "Yes, can I have a vegan steak?",
+          "contentSpanish": "Sí, ¿puedo tener un bistec vegano?",
+          "contentItalian": "Sì, posso avere una bistecca vegana?",
+          "contentFrench": "Oui, puis-je avoir un steak végétalien?"
+        },
+        {
+          "name": "Waitress",
+          "contentEnglish": "I'm afraid we only serve real steak, sir.",
+          "contentSpanish": "Me temo que solo servimos bistec real, señor.",
+          "contentItalian": "Temo che serviamo solo bistecche vere, signore.",
+          "contentFrench": "J'ai bien peur que nous ne servions que de vrais steaks, monsieur."
+        },
+        {
+          "name": "Man",
+          "contentEnglish": "Ah, too bad. Alright, I'll go for the chicken parmesan then.",
+          "contentSpanish": "Ah, qué mal. De acuerdo, entonces tomaré el pollo a la parmesana.",
+          "contentItalian": "Ah, peccato. Va bene, allora prendo il pollo alla parmigiana.",
+          "contentFrench": "Ah, dommage. D'accord, je prendrai le poulet parmesan alors."
+        },
+        {
+          "name": "Waitress",
+          "contentEnglish": "Would you like that cooked, or should I just bring out a chicken and some cheese?",
+          "contentSpanish": "¿Le gustaría eso cocido, o debo traer solo un pollo y un poco de queso?",
+          "contentItalian": "Lo vuole cotto, o dovrei portare fuori solo un pollo e un po' di formaggio?",
+          "contentFrench": "Voulez-vous cela cuit, ou devrais-je simplement apporter un poulet et du fromage?"
+        },
+        {
+          "name": "Man",
+          "contentEnglish": "Ha! You've got a sense of humor. Cooked, please!",
+          "contentSpanish": "¡Ja! Tienes sentido del humor. ¡Cocido, por favor!",
+          "contentItalian": "Ah! Hai senso dell'umorismo. Cotto, per favore!",
+          "contentFrench": "Ha ! Vous avez le sens de l'humour. Cuit, s'il vous plaît!"
+        },
+        {
+          "name": "Waitress",
+          "contentEnglish": "Of course, sir. Anything else?",
+          "contentSpanish": "Por supuesto, señor. ¿Algo más?",
+          "contentItalian": "Certo, signore. Qualcos'altro?",
+          "contentFrench": "Bien sûr, monsieur. Autre chose?"
+        },
+        {
+          "name": "Man",
+          "contentEnglish": "A sense of purpose in life. But for now, the chicken will do.",
+          "contentSpanish": "Un sentido de propósito en la vida. Pero por ahora, el pollo estará bien.",
+          "contentItalian": "Un senso di scopo nella vita. Ma per ora, il pollo andrà bene.",
+          "contentFrench": "Un sens du but dans la vie. Mais pour l'instant, le poulet fera l'affaire."
+        }
+      ]
+    },
+    {
+      "title": "The Cab Ride Conundrum",
+      "description": "A woman tries to get a cab to a mysterious location, leading to a series of amusing exchanges.",
+      "blurbs": [
+        {
+          "name": "Driver",
+          "contentEnglish": "Good day, ma'am. Where can I take you today?",
+          "contentSpanish": "Buen día, señora. ¿Adónde puedo llevarla hoy?",
+          "contentItalian": "Buona giornata, signora. Dove posso portarla oggi?",
+          "contentFrench": "Bonne journée, madame. Où puis-je vous emmener aujourd'hui?"
+        },
+        {
+          "name": "Woman",
+          "contentEnglish": "To the end of the rainbow, please!",
+          "contentSpanish": "¡Al final del arcoíris, por favor!",
+          "contentItalian": "Alla fine dell'arcobaleno, per favore!",
+          "contentFrench": "À la fin de l'arc-en-ciel, s'il vous plaît!"
+        },
+        {
+          "name": "Driver",
+          "contentEnglish": "Ha, I'll need some luck for that! Anywhere specific in mind?",
+          "contentSpanish": "Ja, ¡necesitaré algo de suerte para eso! ¿Tiene algún lugar específico en mente?",
+          "contentItalian": "Ah, avrò bisogno di un po' di fortuna per quello! Hai un posto specifico in mente?",
+          "contentFrench": "Ha, j'aurai besoin de chance pour ça! Vous avez un endroit spécifique en tête?"
+        },
+        {
+          "name": "Woman",
+          "contentEnglish": "Alright, to the city museum then.",
+          "contentSpanish": "Está bien, entonces al museo de la ciudad.",
+          "contentItalian": "Va bene, allora al museo della città.",
+          "contentFrench": "D'accord, au musée de la ville alors."
+        },
+        {
+          "name": "Driver",
+          "contentEnglish": "Great choice! Do you want to take the scenic route or the fastest one?",
+          "contentSpanish": "¡Buena elección! ¿Quiere tomar la ruta panorámica o la más rápida?",
+          "contentItalian": "Ottima scelta! Vuoi prendere la strada panoramica o la più veloce?",
+          "contentFrench": "Excellent choix ! Vous voulez prendre la route panoramique ou la plus rapide?"
+        },
+        {
+          "name": "Woman",
+          "contentEnglish": "Hmm, which one has more rainbows?",
+          "contentSpanish": "Hmm, ¿cuál tiene más arcoíris?",
+          "contentItalian": "Hmm, quale ha più arcobaleni?",
+          "contentFrench": "Hmm, lequel a le plus d'arc-en-ciels?"
+        },
+        {
+          "name": "Driver",
+          "contentEnglish": "I believe the scenic route might fulfill your rainbow desires.",
+          "contentSpanish": "Creo que la ruta panorámica podría cumplir sus deseos de arcoíris.",
+          "contentItalian": "Credo che la strada panoramica potrebbe soddisfare i tuoi desideri di arcobaleno.",
+          "contentFrench": "Je crois que la route panoramique pourrait répondre à vos désirs d'arc-en-ciel."
+        },
+        {
+          "name": "Woman",
+          "contentEnglish": "Splendid! Let's chase some rainbows.",
+          "contentSpanish": "¡Espléndido! Vamos a perseguir algunos arcoíris.",
+          "contentItalian": "Splendido! Inseguiamo alcuni arcobaleni.",
+          "contentFrench": "Splendide ! Poursuivons quelques arc-en-ciels."
+        },
+        {
+          "name": "Driver",
+          "contentEnglish": "Hold tight! We’re off on a colorful journey.",
+          "contentSpanish": "¡Agárrese fuerte! Nos vamos en un viaje colorido.",
+          "contentItalian": "Tieniti forte! Siamo in viaggio in un viaggio colorato.",
+          "contentFrench": "Accrochez-vous ! Nous partons pour un voyage haut en couleur."
+        },
+        {
+          "name": "Woman",
+          "contentEnglish": "Do you think we’ll find a pot of gold?",
+          "contentSpanish": "¿Crees que encontraremos una olla de oro?",
+          "contentItalian": "Pensi che troveremo una pentola d'oro?",
+          "contentFrench": "Pensez-vous que nous trouverons un pot d'or?"
+        },
+        {
+          "name": "Driver",
+          "contentEnglish": "Well, ma'am, I can’t promise gold, but I assure you a golden experience!",
+          "contentSpanish": "Bueno, señora, no puedo prometerle oro, ¡pero le aseguro una experiencia dorada!",
+          "contentItalian": "Bene, signora, non posso prometterti oro, ma ti assicuro un'esperienza dorata!",
+          "contentFrench": "Eh bien, madame, je ne peux pas promettre d'or, mais je vous assure une expérience en or !"
+        },
+        {
+          "name": "Woman",
+          "contentEnglish": "That will do, Mr. Cab Driver. To the rainbows!",
+          "contentSpanish": "Eso servirá, Sr. Taxista. ¡A los arcoíris!",
+          "contentItalian": "Andrà bene, Signor Tassista. Agli arcobaleni!",
+          "contentFrench": "Ça ira, Monsieur le Chauffeur. Aux arc-en-ciels!"
+        }
+      ]
+    },
+    {
+      "title": "The Unexpected Sports Fan",
+      "description": "Two friends attend a sports game, but one reveals an unexpected side of themselves.",
+      "blurbs": [
+        {
+          "name": "Jake",
+          "contentEnglish": "Hey Sarah, thanks for inviting me to this game! I've never watched live baseball before.",
+          "contentSpanish": "¡Hola Sarah, gracias por invitarme a este juego! Nunca he visto béisbol en vivo antes.",
+          "contentItalian": "Ehi Sarah, grazie per avermi invitato a questa partita! Non ho mai visto una partita di baseball dal vivo prima.",
+          "contentFrench": "Salut Sarah, merci de m'avoir invité à ce match! Je n'ai jamais vu de baseball en direct avant."
+        },
+        {
+          "name": "Sarah",
+          "contentEnglish": "Really? Prepare to get hooked! It's so much better live.",
+          "contentSpanish": "¿En serio? ¡Prepárate para engancharte! Es mucho mejor en vivo.",
+          "contentItalian": "Davvero? Preparati a diventare un fan! È molto meglio dal vivo.",
+          "contentFrench": "Vraiment ? Prépare-toi à devenir accro ! C'est tellement mieux en direct."
+        },
+        {
+          "name": "Jake",
+          "contentEnglish": "It's just... they just stand there most of the time, right?",
+          "contentSpanish": "Es solo que... ellos solo están parados la mayoría del tiempo, ¿verdad?",
+          "contentItalian": "È solo che... stanno lì fermi la maggior parte del tempo, giusto?",
+          "contentFrench": "C'est juste... ils restent là la plupart du temps, non?"
+        },
+        {
+          "name": "Sarah",
+          "contentEnglish": "Oh, just you wait! The excitement is all in the small details.",
+          "contentSpanish": "¡Oh, solo espera! La emoción está en los pequeños detalles.",
+          "contentItalian": "Oh, aspetta e vedrai! L'emozione è tutta nei piccoli dettagli.",
+          "contentFrench": "Oh, attends un peu ! L'excitation est dans les petits détails."
+        },
+        {
+          "name": "Jake",
+          "contentEnglish": "Well, I did bring my glove. Just in case a ball comes our way.",
+          "contentSpanish": "Bueno, traje mi guante. Por si acaso una pelota viene hacia nosotros.",
+          "contentItalian": "Beh, ho portato il mio guanto. Nel caso in cui una palla venga nella nostra direzione.",
+          "contentFrench": "Eh bien, j'ai apporté mon gant. Au cas où une balle viendrait dans notre direction."
+        },
+        {
+          "name": "Sarah",
+          "contentEnglish": "That's the spirit! Also, did you get a foam finger?",
+          "contentSpanish": "¡Ese es el espíritu! Además, ¿compraste un dedo de espuma?",
+          "contentItalian": "Questo è lo spirito! E poi, hai preso un dito di schiuma?",
+          "contentFrench": "C'est l'esprit ! Aussi, as-tu pris un doigt en mousse?"
+        },
+        {
+          "name": "Jake",
+          "contentEnglish": "I thought that was too cliché?",
+          "contentSpanish": "¿Pensé que eso era muy cliché?",
+          "contentItalian": "Pensavo fosse troppo cliché?",
+          "contentFrench": "J'ai pensé que c'était trop cliché ?"
+        },
+        {
+          "name": "Sarah",
+          "contentEnglish": "No way! It’s all part of the experience. I have an extra one here for you.",
+          "contentSpanish": "¡Para nada! Es parte de la experiencia. Tengo uno extra aquí para ti.",
+          "contentItalian": "Ma no! Fa tutto parte dell'esperienza. Ne ho uno in più qui per te.",
+          "contentFrench": "Pas du tout ! C'est tout une partie de l'expérience. J'en ai un en plus ici pour toi."
+        },
+        {
+          "name": "Jake",
+          "contentEnglish": "Haha, alright. I'm in! Go team!",
+          "contentSpanish": "Jaja, está bien. ¡Estoy dentro! ¡Vamos equipo!",
+          "contentItalian": "Haha, va bene. Ci sono! Forza squadra!",
+          "contentFrench": "Haha, d'accord. Je suis partant ! Allez l'équipe !"
+        },
+        {
+          "name": "Sarah",
+          "contentEnglish": "That's what I wanted to hear! Enjoy the game.",
+          "contentSpanish": "¡Eso es lo que quería escuchar! Disfruta el juego.",
+          "contentItalian": "È quello che volevo sentire! Goditi la partita.",
+          "contentFrench": "C'est ce que je voulais entendre ! Profite du match."
+        },
+        {
+          "name": "Jake",
+          "contentEnglish": "Thanks, Sarah. With you by my side, I think I just might.",
+          "contentSpanish": "Gracias, Sarah. Contigo a mi lado, creo que podría hacerlo.",
+          "contentItalian": "Grazie, Sarah. Con te al mio fianco, penso proprio di poterlo fare.",
+          "contentFrench": "Merci, Sarah. Avec toi à mes côtés, je pense que je pourrais bien le faire."
+        },
+        {
+          "name": "Sarah",
+          "contentEnglish": "Cheers to new experiences!",
+          "contentSpanish": "¡Brindemos por nuevas experiencias!",
+          "contentItalian": "Evviva le nuove esperienze!",
+          "contentFrench": "À de nouvelles expériences !"
+        }
+      ]
+    }
+  ]
+}

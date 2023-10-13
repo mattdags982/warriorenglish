@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Conversation, Module, Story, Translation
+from .models import Blurb, Chapter, Story, Translation
 
 # In Django Rest Framework (DRF), a serializer is a component that allows you to convert
 # complex data types, such as Django models, into Python data types that can be easily
@@ -9,10 +9,10 @@ from .models import Conversation, Module, Story, Translation
 # or received as a payload from a client.
 
 
-class ModuleSerializer(serializers.ModelSerializer):
+class StorySerializer(serializers.ModelSerializer):
     class Meta:
-        model = Module
-        fields = ["id", "name", "difficulty_rating", "category"]
+        model = Story
+        fields = ["id", "title", "difficulty_rating", "category"]
 
 
 class TranslationSerializer(serializers.ModelSerializer):
@@ -21,11 +21,11 @@ class TranslationSerializer(serializers.ModelSerializer):
         fields = ["language_code", "translated_content"]
 
 
-class ConversationSerializer(serializers.ModelSerializer):
+class BlurbSerializer(serializers.ModelSerializer):
     translations = serializers.SerializerMethodField()
 
     class Meta:
-        model = Conversation
+        model = Blurb
         fields = ["sequence", "character_name", "content_english", "translations"]
 
     def get_translations(self, obj):
@@ -39,11 +39,11 @@ class ConversationSerializer(serializers.ModelSerializer):
         return TranslationSerializer(translations, many=True).data
 
 
-class StorySerializer(serializers.ModelSerializer):
-    conversations = ConversationSerializer(many=True, read_only=True)
+class ChapterSerializer(serializers.ModelSerializer):
+    blurbs = BlurbSerializer(many=True, read_only=True)
 
     class Meta:
-        model = Story
+        model = Chapter
         fields = [
             "id",
             "title",
@@ -51,5 +51,5 @@ class StorySerializer(serializers.ModelSerializer):
             "audio_link",
             "created_at",
             "updated_at",
-            "conversations",
+            "blurbs",
         ]

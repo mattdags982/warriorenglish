@@ -1,19 +1,18 @@
 from django.db import models
 
 
-class Module(models.Model):
-    name = models.CharField(max_length=255)
+class Story(models.Model):
+    title = models.CharField(max_length=255)
+    description = models.TextField()
     difficulty_rating = models.IntegerField()
     category = models.CharField(max_length=255)
 
     def __str__(self):
-        return self.name
+        return self.title
 
 
-class Story(models.Model):
-    module = models.ForeignKey(
-        Module, related_name="stories", on_delete=models.SET_NULL, null=True, blank=True
-    )
+class Chapter(models.Model):
+    story = models.ForeignKey(Story, related_name="chapters", on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
     description = models.TextField()
     audio_link = models.URLField(blank=True, null=True)
@@ -24,9 +23,9 @@ class Story(models.Model):
         return self.title
 
 
-class Conversation(models.Model):
-    story = models.ForeignKey(
-        Story, related_name="conversations", on_delete=models.CASCADE
+class Blurb(models.Model):
+    chapter = models.ForeignKey(
+        Chapter, related_name="blurbs", on_delete=models.CASCADE
     )
     sequence = models.IntegerField()
     character_name = models.CharField(max_length=255)
@@ -35,7 +34,7 @@ class Conversation(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
-        # means that by default, whenever you retrieve Conversations for a Story,
+        # means that by default, whenever you retrieve Blurbs for a Chapter,
         # they will be ordered by the sequence field in ascending order.
         ordering = ["sequence"]
 
@@ -44,19 +43,19 @@ class Conversation(models.Model):
 
 
 class Translation(models.Model):
-    conversation = models.ForeignKey(
-        Conversation, related_name="translations", on_delete=models.CASCADE
+    blurb = models.ForeignKey(
+        Blurb, related_name="translations", on_delete=models.CASCADE
     )
-    language_code = models.CharField(max_length=10)
+    language_code = models.CharField(max_length=3)
     translated_content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
         # ensures that you can’t have multiple Translation objects with the same
-        # conversation and language_code. This means that for each Conversation,
+        # blurb and language_code. This means that for each Blurb,
         # there can only be one Translation per language_code
-        unique_together = ["conversation", "language_code"]
+        unique_together = ["blurb", "language_code"]
 
     def __str__(self):
         return f"{self.language_code} - {self.translated_content}"

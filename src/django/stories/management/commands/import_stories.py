@@ -1,62 +1,85 @@
 import json
-
-from stories.models import Conversation, Story, Translation
+import os
 
 from django.core.management.base import BaseCommand
+from stories.models import Blurb, Chapter, Story, Translation
 
 
 class Command(BaseCommand):
-    help = "Import stories into the database"
+    help = "Import stories from a JSON file into the database"
+
+    def add_arguments(self, parser):
+        parser.add_argument(
+            "filename", type=str, help="The JSON file containing the story data"
+        )
 
     def handle(self, *args, **kwargs):
-        # Load stories from JSON file
-        with open("stories/management/commands/stories.json", "r") as file:
-            stories_data = json.load(file)
+        filename = kwargs["filename"]
+        if not os.path.isfile(filename):
+            self.stdout.write(self.style.ERROR(f'File "{filename}" does not exist.'))
+            return
 
-        # Delete all existing stories, conversations, and translations
-        Story.objects.all().delete()
+        # Load stories from the specified JSON file
+        with open(filename, "r") as file:
+            story_data = json.load(file)
 
-        # Loop through each story in the array
-        for story_data in stories_data:
-            # Create Story instance
-            story = Story.objects.create(
-                title=story_data["title"],
-                description=story_data["description"],
+        # Create Story instance
+        story, created = Story.objects.get_or_create(
+            title=story_data["title"],
+            defaults={
+                "description": story_data["description"],
+                "difficulty_rating": story_data["difficulty_rating"],
+                "category": story_data["category"],
+            },
+        )
+
+        if not created:
+            self.stdout.write(
+                self.style.WARNING(f'Story "{story.title}" already exists. Skipping...')
+            )
+            return
+
+        # Loop through each chapter in the story data
+        for chapter_data in story_data["chapters"]:
+            # Create Chapter instance
+            chapter = Chapter.objects.create(
+                story=story,
+                title=chapter_data["title"],
+                description=chapter_data["description"],
+                audio_link=chapter_data.get(
+                    "audio_link", ""
+                ),  # Handles the case if 'audio_link' is not provided
             )
 
-            # Loop through the conversations and create Conversation and Translation instances
-            for index, conversation_data in enumerate(story_data["conversations"]):
-                conversation = Conversation.objects.create(
-                    story=story,
-                    sequence=index,
-                    character_name=conversation_data["name"],
-                    content_english=conversation_data["contentEnglish"],
+            # Loop through the blurbs in the chapter
+            for blurb_data in chapter_data["blurbs"]:
+                # Create Blurb instance
+                blurb = Blurb.objects.create(
+                    chapter=chapter,
+                    sequence=chapter_data["blurbs"].index(blurb_data),
+                    character_name=blurb_data["name"],
+                    content_english=blurb_data["contentEnglish"],
                 )
 
-                # Check if Spanish translation key exists and then create
-                if "contentSpanish" in conversation_data:
-                    Translation.objects.create(
-                        conversation=conversation,
-                        language_code="es",
-                        translated_content=conversation_data["contentSpanish"],
-                    )
-
-                # Check if Italian translation key exists and then create
-                if "contentItalian" in conversation_data:
-                    Translation.objects.create(
-                        conversation=conversation,
-                        language_code="it",
-                        translated_content=conversation_data["contentItalian"],
-                    )
-
-                # Check if French translation key exists and then create
-                if "contentFrench" in conversation_data:
-                    Translation.objects.create(
-                        conversation=conversation,
-                        language_code="fr",
-                        translated_content=conversation_data["contentFrench"],
-                    )
+                # Create Translation instances
+                for lang_code in [
+                    "es",
+                    "it",
+                    "fr",
+                ]:  # Add other language codes if needed
+                    if f"content{lang_code.capitalize()}" in blurb_data:
+                        Translation.objects.create(
+                            blurb=blurb,
+                            language_code=lang_code,
+                            translated_content=blurb_data[
+                                f"content{lang_code.capitalize()}"
+                            ],
+                        )
 
             self.stdout.write(
-                self.style.SUCCESS('Successfully imported story "%s"' % story.title)
+                self.style.SUCCESS(f'Successfully imported chapter "{chapter.title}"')
             )
+
+        self.stdout.write(
+            self.style.SUCCESS(f'Successfully imported story "{story.title}"')
+        )

@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Conversation, Module, Story, Translation
+from .models import Blurb, Chapter, Story, Translation
 
 
 class TranslationInline(admin.TabularInline):
@@ -8,17 +8,17 @@ class TranslationInline(admin.TabularInline):
     extra = 0  # Number of extra forms to display
 
 
-class ConversationInline(admin.StackedInline):
-    model = Conversation
+class BlurbInline(admin.StackedInline):
+    model = Blurb
     extra = 0  # Number of extra forms to display
     inlines = [TranslationInline]
 
 
-class StoryAdmin(admin.ModelAdmin):
-    inlines = [ConversationInline]
+class ChapterAdmin(admin.ModelAdmin):
+    inlines = [BlurbInline]
 
 
-admin.site.register(Story, StoryAdmin)
-admin.site.register(Conversation)
+admin.site.register(Chapter, ChapterAdmin)
+admin.site.register(Blurb)
 admin.site.register(Translation)
-admin.site.register(Module)
+admin.site.register(Story)
