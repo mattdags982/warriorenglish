@@ -1,16 +1,16 @@
 import AudioPlayer from "@/app/components/AudioPlayer";
 
-export default function StoryLayout({
+export default function ChapterLayout({
   children,
   params,
 }: {
   children: React.ReactNode;
   params: {
-    story_id: string;
+    chapter_id: string;
   };
 }) {
-  // in the future, you can use the story name to get the audio file.
-  // you may need to use redux to store the story name. MAYBE.
+  // in the future, you can use the chapter name to get the audio file.
+  // you may need to use redux to store the chapter name. MAYBE.
   return (
     <section className="flex flex-col ">
       <div>{children}</div>

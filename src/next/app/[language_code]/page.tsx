@@ -17,7 +17,7 @@ export default async function LandingPage({
     <div className="h-full w-full flex flex-col items-center mt-24 gap-12 flex-wrap">
       <Typography variant="h1">Landing Page</Typography>
       <Typography variant="h5">
-        <Link href={`/${language_code}/modules`}>Modules</Link>
+        <Link href={`/${language_code}/stories`}>Stories</Link>
       </Typography>
       <Typography variant="h5">
         <Link href={`/${language_code}/blog`}>Blog</Link>

@@ -1,12 +1,12 @@
 import { Typography } from "@mui/material";
-import { getStoryById } from "../../../../api/stories";
-import ConversationBlurb from "@/app/components/Conversation";
-import { Story } from "@/types/Story";
+import { getChapterById } from "@/app/api/stories";
+import ConversationBlurb from "@/app/components/ConversationBlurb";
+import { Chapter } from "@/types/Chapter";
 import AudioPlayer from "@/app/components/AudioPlayer";
 
-interface StoryProps {
+interface Props {
   params: {
-    story_id: string;
+    chapter_id: string;
     language_code: string;
   };
 }
@@ -17,7 +17,7 @@ interface StoryProps {
 // what does that feel like? How can you combine functionality with a warm and inviting, yet sleek and modern feeling?
 
 // being inspired from spotify, I think that the audio play and "top of screen" options should sort of "blend in" to the background, which resemebles paper or at least something soft on the eyes
-// once you open a story, it is essentially "opening a book". The more distractions you have on the screen, the worse.
+// once you open a chapter, it is essentially "opening a book". The more distractions you have on the screen, the worse.
 
 // When starting screens of the app can feel a bit more like ex, the cover of the book, or something along those lines
 
@@ -38,10 +38,10 @@ const textColors = {
   taupe: "#505050",
 };
 
-export default async function Story({
-  params: { story_id, language_code },
-}: StoryProps) {
-  const story: Story = await getStoryById(story_id, language_code);
+export default async function Chapter({
+  params: { chapter_id, language_code },
+}: Props) {
+  const chapter: Chapter = await getChapterById(chapter_id, language_code);
 
   return (
     <div
@@ -52,20 +52,15 @@ export default async function Story({
     >
       <div className="max-w-[700px]">
         <div className="">
-          <Typography variant="h3">{story.title}</Typography>
+          <Typography variant="h3">{chapter.title}</Typography>
           <Typography className="mt-2" variant="h5">
-            {story.description}
+            {chapter.description}
           </Typography>
         </div>
         <div className="mt-4 border-b-2" />
         <div className="mt-4">
-          {story.conversations.map((conversation) => {
-            return (
-              <ConversationBlurb
-                key={conversation.sequence}
-                conversation={conversation}
-              />
-            );
+          {chapter.blurbs.map((blurb) => {
+            return <ConversationBlurb key={blurb.sequence} blurb={blurb} />;
           })}
         </div>
       </div>

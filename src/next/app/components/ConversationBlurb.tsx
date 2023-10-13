@@ -1,25 +1,21 @@
 "use client";
 
-import { Conversation } from "@/types/Story";
+import { Blurb } from "@/types/Chapter";
 import { Button, Typography } from "@mui/material";
 import { useState } from "react";
 
 interface ConversationBlurbProps {
-  conversation: Conversation;
+  blurb: Blurb;
 }
 
-export default function ConversationBlurb({
-  conversation,
-}: ConversationBlurbProps) {
+export default function ConversationBlurb({ blurb }: ConversationBlurbProps) {
   const [translationOpen, setTranslationOpen] = useState(false);
   return (
     <div className="mt-4">
       <div className="mt-4 flex">
         <div className="flex-1">
-          <Typography variant="h6">{conversation.character_name}</Typography>
-          <Typography variant="subtitle1">
-            {conversation.content_english}
-          </Typography>
+          <Typography variant="h6">{blurb.character_name}</Typography>
+          <Typography variant="subtitle1">{blurb.content_english}</Typography>
         </div>
         <Button
           onClick={() => {
@@ -33,7 +29,7 @@ export default function ConversationBlurb({
       {translationOpen && (
         <div className="mt-2">
           <Typography className="text-gray-600" variant="subtitle1">
-            {conversation.translations[0].translated_content}
+            {blurb.translations[0].translated_content}
           </Typography>
         </div>
       )}

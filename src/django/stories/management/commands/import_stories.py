@@ -1,8 +1,9 @@
 import json
 import os
 
-from django.core.management.base import BaseCommand
 from stories.models import Blurb, Chapter, Story, Translation
+
+from django.core.management.base import BaseCommand
 
 
 class Command(BaseCommand):
@@ -15,6 +16,11 @@ class Command(BaseCommand):
 
     def handle(self, *args, **kwargs):
         filename = kwargs["filename"]
+        language_mapping = {
+            "es": "Spanish",
+            "it": "Italian",
+            "fr": "French",
+        }
         if not os.path.isfile(filename):
             self.stdout.write(self.style.ERROR(f'File "{filename}" does not exist.'))
             return
@@ -60,20 +66,13 @@ class Command(BaseCommand):
                     character_name=blurb_data["name"],
                     content_english=blurb_data["contentEnglish"],
                 )
-
-                # Create Translation instances
-                for lang_code in [
-                    "es",
-                    "it",
-                    "fr",
-                ]:  # Add other language codes if needed
-                    if f"content{lang_code.capitalize()}" in blurb_data:
+                for lang_code, lang_name in language_mapping.items():
+                    content_key = f"content{lang_name}"
+                    if content_key in blurb_data:
                         Translation.objects.create(
                             blurb=blurb,
                             language_code=lang_code,
-                            translated_content=blurb_data[
-                                f"content{lang_code.capitalize()}"
-                            ],
+                            translated_content=blurb_data[content_key],
                         )
 
             self.stdout.write(
