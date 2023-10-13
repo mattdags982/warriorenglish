@@ -8,7 +8,7 @@ import { useLogoutMutation } from "@/redux/features/authApiSlice";
 import { logout as setLogout } from "@/redux/features/authSlice";
 import { useRouter } from "next/navigation";
 
-export default function Header() {
+export default function Header({ language_code }: { language_code: string }) {
   const dispatch = useAppDispatch();
   const [logout] = useLogoutMutation();
   const { isAuthenticated } = useAppSelector((state) => state.auth);
@@ -37,8 +37,8 @@ export default function Header() {
   );
   const guestLinks = (
     <div className="flex items-center gap-2">
-      <Link href={"/es/auth/login"}>Login</Link>
-      <Link href={"/es/auth/signup"}>Sign up</Link>
+      <Link href={`/${language_code}/auth/login`}>Login</Link>
+      <Link href={`/${language_code}/auth/signup`}>Sign up</Link>
     </div>
   );
 
