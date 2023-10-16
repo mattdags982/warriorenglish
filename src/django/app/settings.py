@@ -14,6 +14,12 @@ import os
 from datetime import timedelta
 from pathlib import Path
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
+DJANGO_ENV = os.getenv("DJANGO_ENV")
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -23,12 +29,23 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-f@jc1u3t)%gbiz&sejhkg2+@15uo#@*m2zbbxgj3o+09ohniiz"
+if DJANGO_ENV == "production":
+    SECRET_KEY = os.getenv("SECRET_KEY")
+else:
+    SECRET_KEY = "django-insecure-f@jc1u3t)%gbiz&sejhkg2+@15uo#@*m2zbbxgj3o+09ohniiz"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+if DJANGO_ENV == "production":
+    DEBUG = False
+else:
+    DEBUG = True
 
-ALLOWED_HOSTS = []
+if DJANGO_ENV == "production":
+    ALLOWED_HOSTS = [
+        "api.warriornenglish.com"
+    ]  # TODO: change this to actual subdomain that we launch to
+else:
+    ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -95,15 +112,28 @@ WSGI_APPLICATION = "app.wsgi.application"
 #     }
 # }
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "warriorenglish",
-        "USER": "matthewdagostino",
-        "PASSWORD": "Wizehire2$",
-        "HOST": "localhost",
+if DJANGO_ENV == "production":
+    DATABASES = {
+        "default": {
+            "ENGINE": "django_psdb_engine",
+            "NAME": os.getenv("DB_NAME"),
+            "HOST": os.getenv("DB_HOST"),
+            "PORT": os.getenv("DB_PORT"),
+            "USER": os.getenv("DB_USER"),
+            "PASSWORD": os.getenv("DB_PASSWORD"),
+            "OPTIONS": {"ssl": {"ca": os.getenv("MYSQL_ATTR_SSL_CA")}},
+        }
     }
-}
+else:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": "warriorenglish",
+            "USER": "matthewdagostino",
+            "PASSWORD": "Wizehire2$",
+            "HOST": "localhost",
+        }
+    }
 
 
 # Password validation
@@ -163,46 +193,11 @@ REST_FRAMEWORK = {
 }
 
 # JWT auth
-
-
 SIMPLE_JWT = {
     # Note that these match the cookie lifetimes
     "ACCESS_TOKEN_LIFETIME": timedelta(days=1),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=5),
-    # # True means that after a refresh tokens lifetime has expired, a new refresh token will be created with out the user needing to log back in
-    # # Note: this is ONLY true if the user has been active within the refresh token lifetime
-    # "ROTATE_REFRESH_TOKENS": True,
-    # # True means that after a refresh token has been used to obtain a new access token, the old refresh token will be unusable
-    # "BLACKLIST_AFTER_ROTATION": True,
-    # "UPDATE_LAST_LOGIN": False,
-    # "ALGORITHM": "HS256",
-    # "SIGNING_KEY": SECRET_KEY,
-    # "VERIFYING_KEY": "",
-    # "AUDIENCE": None,
-    # "ISSUER": None,
-    # "JSON_ENCODER": None,
-    # "JWK_URL": None,
-    # "LEEWAY": 0,
     "AUTH_HEADER_TYPES": ("JWT",),
-    # "AUTH_HEADER_NAME": "HTTP_AUTHORIZATION",
-    # "USER_ID_FIELD": "id",
-    # "USER_ID_CLAIM": "user_id",
-    # "USER_AUTHENTICATION_RULE": "rest_framework_simplejwt.authentication.default_user_authentication_rule",
-    # "AUTH_TOKEN_CLASSES": ("rest_framework_simplejwt.tokens.AccessToken",),
-    # "TOKEN_TYPE_CLAIM": "token_type",
-    # "TOKEN_USER_CLASS": "rest_framework_simplejwt.models.TokenUser",
-    # "JTI_CLAIM": "jti",
-    # "SLIDING_TOKEN_REFRESH_EXP_CLAIM": "refresh_exp",
-    # "SLIDING_TOKEN_LIFETIME": timedelta(minutes=5),
-    # "SLIDING_TOKEN_REFRESH_LIFETIME": timedelta(days=1),
-    # # "TOKEN_OBTAIN_SERIALIZER": "rest_framework_simplejwt.serializers.TokenObtainPairSerializer",
-    # # It will work instead of the default serializer(TokenObtainPairSerializer).
-    # "TOKEN_OBTAIN_SERIALIZER": "app.api.serializers.MyTokenObtainPairSerializer",
-    # "TOKEN_REFRESH_SERIALIZER": "rest_framework_simplejwt.serializers.TokenRefreshSerializer",
-    # "TOKEN_VERIFY_SERIALIZER": "rest_framework_simplejwt.serializers.TokenVerifySerializer",
-    # "TOKEN_BLACKLIST_SERIALIZER": "rest_framework_simplejwt.serializers.TokenBlacklistSerializer",
-    # "SLIDING_TOKEN_OBTAIN_SERIALIZER": "rest_framework_simplejwt.serializers.TokenObtainSlidingSerializer",
-    # "SLIDING_TOKEN_REFRESH_SERIALIZER": "rest_framework_simplejwt.serializers.TokenRefreshSlidingSerializer",
 }
 
 # CORS config
@@ -217,7 +212,10 @@ AUTH_USER_MODEL = "users.UserAccount"
 AUTH_COOKIE = "access"
 # This should match the access/refresh token lifetime
 AUTH_COOKIE_MAX_AGE = 60 * 60 * 24  # 1 day
-AUTH_COOKIE_SECURE = False  # TODO: THIS NEEDS TO BE TRUE FOR PRODUCTION
+if DJANGO_ENV == "production":
+    AUTH_COOKIE_SECURE = True  # TODO: THIS NEEDS TO BE TRUE FOR PRODUCTION
+else:
+    AUTH_COOKIE_SECURE = False
 AUTH_COOKIE_HTTPONLY = True
 AUTH_COOKIE_PATH = "/"
 AUTH_COOKIE_SAMESITE = "None"  # TODO: THIS NEEDS TO BE "NONE" FOR PRODUCTION
@@ -227,11 +225,14 @@ AUTH_COOKIE_SAMESITE = "None"  # TODO: THIS NEEDS TO BE "NONE" FOR PRODUCTION
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
-EMAIL_HOST_USER = "warriorenglishapp@gmail.com"
-EMAIL_HOST_PASSWORD = "gyftwejyufhaotuj"
+EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
 EMAIL_USE_TLS = True
 # TODO: variables for email templates
-DOMAIN = "localhost:3000"
+if DJANGO_ENV == "production":
+    DOMAIN = "warriorenglish.com"
+else:
+    DOMAIN = "localhost:3000"
 
 DJOSER = {
     "LOGIN_FIELD": "email",
