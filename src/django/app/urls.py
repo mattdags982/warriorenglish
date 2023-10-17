@@ -20,7 +20,7 @@ from django.urls import include, path, re_path
 from django.views.generic import TemplateView
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
+    path("", admin.site.urls),
     path("api/", include("stories.urls")),
     # the ORDER OF THIS matter because it will match the first one it finds
     path("auth/", include("users.urls")),  # custom djoser urls
