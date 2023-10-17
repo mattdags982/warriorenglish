@@ -42,7 +42,8 @@ else:
 
 if DJANGO_ENV == "production":
     ALLOWED_HOSTS = [
-        "api.warriornenglish.com"
+        "api.warriornenglish.com",
+        "tgszr3qrx9.execute-api.sa-east-1.amazonaws.com",
     ]  # TODO: change this to actual subdomain that we launch to
 else:
     ALLOWED_HOSTS = ["*"]
